@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/fpl-data/static/css/main.073c9b0a.css",
-    "main.js": "/fpl-data/static/js/main.bad195f2.js",
+    "main.css": "/fpl-data/static/css/main.e6c13ad2.css",
+    "main.js": "/fpl-data/static/js/main.7d56bb2b.js",
     "static/js/787.9ecdd429.chunk.js": "/fpl-data/static/js/787.9ecdd429.chunk.js",
-    "static/media/logo.svg": "/fpl-data/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/fpl-data/index.html",
-    "main.073c9b0a.css.map": "/fpl-data/static/css/main.073c9b0a.css.map",
-    "main.bad195f2.js.map": "/fpl-data/static/js/main.bad195f2.js.map",
+    "main.e6c13ad2.css.map": "/fpl-data/static/css/main.e6c13ad2.css.map",
+    "main.7d56bb2b.js.map": "/fpl-data/static/js/main.7d56bb2b.js.map",
     "787.9ecdd429.chunk.js.map": "/fpl-data/static/js/787.9ecdd429.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.bad195f2.js"
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.7d56bb2b.js"
   ]
 }
