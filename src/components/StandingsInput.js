@@ -15,7 +15,7 @@ class StandingsInput extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     console.log('fetching')
-    this.props.fetchManagers(this.state.input)
+    this.props.fetchLeague(this.state.input)
     this.setState({
       input: ''
     });
@@ -23,7 +23,7 @@ class StandingsInput extends React.Component {
 
   render() {
     return(
-      <div className="inputManager">
+      <div className="inputLeague">
         <form onSubmit={this.handleSubmit}>
           <input type="text" name="user" value={this.state.input} onChange={this.handleChange}/>
           <input type="submit" value="submit"/>
