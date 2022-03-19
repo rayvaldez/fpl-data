@@ -20,7 +20,7 @@ class StandingsContainer extends React.Component {
   render() {
     return(
       <div>
-        <StandingsInput fetchManagers={this.fetchManagers}/>
+        <StandingsInput fetchLeague={this.fetchLeague}/>
         <Standings managers={this.state.managers.standings}/>
       </div>
     )
