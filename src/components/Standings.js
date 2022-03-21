@@ -2,7 +2,7 @@ import React from 'react';
 
 const Standings = (props) => {
 
-  const leaderScore = props.managers.results[0].total
+  const leaderScore = props.managers ? props.managers.results[0].total : [];
 
   return (
     <div className="standings">
