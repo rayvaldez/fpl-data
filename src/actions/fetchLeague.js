@@ -1,4 +1,4 @@
-export function fetchLeague() {
+export function fetchLeague(leagueId) {
 
   return (dispatch) => {
     fetch(`https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/leagues-classic/${leagueId}/standings/`)
