@@ -6,11 +6,11 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import managerReducer from './reducers/managerReducer';
+import leagueReducer from './reducers/leagueReducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-let store = createStore(managerReducer, composeEnhancers(applyMiddleware(thunk)));
+let store = createStore(leagueReducer, composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <Provider store={store}>
