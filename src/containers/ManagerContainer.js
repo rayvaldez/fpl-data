@@ -19,7 +19,7 @@ class ManagerContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    manager: state.manager
+    manager: state.managerReducer.manager
   }
 }
 

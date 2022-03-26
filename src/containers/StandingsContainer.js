@@ -18,7 +18,7 @@ class StandingsContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    managers: state.managers
+    managers: state.leagueReducer.managers
   }
 }
 
