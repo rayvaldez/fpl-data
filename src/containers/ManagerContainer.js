@@ -1,6 +1,7 @@
 import React from 'react';
 import ManagerInput from '../components/ManagerInput';
 import Manager from '../components/Manager';
+import ManagerGraph from '../components/ManagerGraph';
 import { fetchManager } from '../actions/fetchManager';
 import { connect } from 'react-redux';
 
@@ -12,6 +13,7 @@ class ManagerContainer extends React.Component {
         <h2>Manager Container</h2>
         <ManagerInput fetchManager={this.props.fetchManager}/>
         <Manager manager={this.props.manager}/>
+        <ManagerGraph manager={this.props.manager}/>
       </div>
     )
   }
