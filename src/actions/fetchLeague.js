@@ -9,10 +9,9 @@ export function fetchLeague(leagueId) {
       .then(data => {
         leagueManagers = data.standings.results
         leagueManagers.name = data.league.name
-
         let i = 0
 
-        leagueManagers.slice(0, 4).forEach((manager => {
+        leagueManagers.forEach((manager => {
           fetch(`https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/entry/${manager.entry}/history/`)
           .then(res => (res.ok ? res : Promise.reject(res)))
           .then(res => res.json())
