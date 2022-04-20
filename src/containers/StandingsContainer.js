@@ -9,7 +9,8 @@ class StandingsContainer extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="standings-container">
+        <h2>Standings</h2>
         <StandingsInput fetchLeague={this.props.fetchLeague}/>
         <LeagueGraph leagueData={this.props.managers}/>
         <Standings managers={this.props.managers}/>
