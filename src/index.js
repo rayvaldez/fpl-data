@@ -6,8 +6,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import Navbar from './components/Navbar';
-import Header from './components/Header';
+import Navbar from './components/Navbar/Navbar';
 import reportWebVitals from './reportWebVitals';
 import reducer from './reducers/index';
 
@@ -20,7 +19,6 @@ ReactDOM.render(
     <BrowserRouter>
       <React.StrictMode>
       <div className="wrapper">
-        <Header />
         <Navbar />
       </div>
         <Routes>
