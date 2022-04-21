@@ -115,8 +115,7 @@ const LeagueGraph = (props) => {
 
   return (
     <div>
-      {graph}
-      <button onClick={forceUpdate}>View Graph</button>
+      {graphData && graphData.length > 0 ? graph : <button onClick={forceUpdate}>View Graph</button>}
     </div>
   );
 }
