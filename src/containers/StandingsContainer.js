@@ -7,11 +7,11 @@ import { connect } from 'react-redux';
 
 class StandingsContainer extends React.Component {
 
+  // <LeagueGraph leagueData={this.props.managers}/>
   render() {
     return(
       <div>
         <StandingsInput fetchLeague={this.props.fetchLeague}/>
-        <LeagueGraph leagueData={this.props.managers}/>
         <Standings managers={this.props.managers}/>
       </div>
     )
