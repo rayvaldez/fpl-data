@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import moment from 'moment';
 
 const Standings = (props) => {
 
@@ -22,17 +23,21 @@ const Standings = (props) => {
 
   return (
     <div className="standings">
+    {props ?
       <Grid item md={12}>
         <Item>
-          {props ? <h2>{leagueName}</h2> : null}
+            <h2>{leagueName}</h2>
         </Item>
       </Grid>
+    : null}
       {props.managers && leader.map(user => {
         return (
           <Grid item xs={12}>
             <Item key={user.id}>
               <div className="standings-leader" key={user.id}>
-                <h5>{user.rank_sort}.{user.player_name} - {user.entry_name} - Total Points - {user.total}</h5>
+                <h3>{moment.localeData().ordinal(user.rank_sort)}</h3>
+                <h5>{user.player_name} - {user.entry_name}</h5>
+                <p>Total Points - {user.total}</p>
               </div>
             </Item>
           </Grid>
@@ -48,8 +53,10 @@ const Standings = (props) => {
               <Grid item xs={6}>
                 <Item>
                   <div className="standings-chasers" key={user.id}>
-                  <h5>{user.rank_sort}.{user.player_name} - {user.entry_name} - Total Points - {user.total}</h5>
-                  {leaderScore - user.total > 0 ? <h6>Points from 1st {leaderScore - user.total}</h6> : null}
+                  <h3>{moment.localeData().ordinal(user.rank_sort)}</h3>
+                  <h5>{user.player_name} - {user.entry_name}</h5>
+                  <p>Total Points - {user.total}</p>
+                  <p>{leaderScore - user.total > 0 ? <p>Points from 1st {leaderScore - user.total}</p> : null}</p>
                   </div>
                 </Item>
               </Grid>
