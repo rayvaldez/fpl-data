@@ -3,6 +3,9 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import { withStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+
 import moment from 'moment';
 
 const Standings = (props) => {
@@ -17,13 +20,18 @@ const Standings = (props) => {
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.primary,
   }));
 
+  const RedTextTypography = withStyles({
+    root: {
+      color: "#dd2c00"
+    }
+  })(Typography);
 
   return (
     <div className="standings">
-    {props ?
+    {props.manager ?
       <Grid item md={12}>
         <Item>
             <h2>{leagueName}</h2>
@@ -56,7 +64,11 @@ const Standings = (props) => {
                   <h3>{moment.localeData().ordinal(user.rank_sort)}</h3>
                   <h5>{user.player_name} - {user.entry_name}</h5>
                   <p>Total Points - {user.total}</p>
-                  <p>{leaderScore - user.total > 0 ? <p>Points from 1st {leaderScore - user.total}</p> : null}</p>
+                  {leaderScore - user.total > 0 ?
+                    <RedTextTypography variant="caption" display="block" gutterBottom>
+                      Points from 1st {leaderScore - user.total}
+                    </RedTextTypography>
+                    : null}
                   </div>
                 </Item>
               </Grid>
@@ -65,7 +77,7 @@ const Standings = (props) => {
         </Grid>
       </Box>
 
-      <br/><br/><br/>
+      <br/><br/><br/><br/>
     </div>
   )
 }
