@@ -6,8 +6,8 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import Navbar from './components/Navbar';
 import Header from './components/Header';
+import PhoneNav from './components/PhoneNav';
 import reportWebVitals from './reportWebVitals';
 import reducer from './reducers/index';
 
@@ -21,7 +21,7 @@ ReactDOM.render(
       <React.StrictMode>
       <div className="wrapper">
         <Header />
-        <Navbar />
+        <PhoneNav />
       </div>
         <Routes>
           <Route path="*" element={<App />} />
