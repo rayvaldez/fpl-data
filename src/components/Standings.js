@@ -5,6 +5,8 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import GameweekInformation from '../components/transferInformation/GameweekInformation';
+
 
 import moment from 'moment';
 
@@ -44,8 +46,10 @@ const Standings = (props) => {
             <Item key={user.id}>
               <div className="standings-leader" key={user.id}>
                 <h3>{moment.localeData().ordinal(user.rank_sort)}</h3>
-                <h5>{user.player_name} - {user.entry_name}</h5>
+                <h4>{user.player_name}</h4>
+                <h5>{user.entry_name}</h5>
                 <p>Total Points - {user.total}</p>
+                <GameweekInformation manager={user}/>
               </div>
             </Item>
           </Grid>
@@ -64,6 +68,7 @@ const Standings = (props) => {
                   <h3>{moment.localeData().ordinal(user.rank_sort)}</h3>
                   <h5>{user.player_name} - {user.entry_name}</h5>
                   <p>Total Points - {user.total}</p>
+                  <GameweekInformation manager={user}/>
                   {leaderScore - user.total > 0 ?
                     <RedTextTypography variant="caption" display="block" gutterBottom>
                       Points from 1st {leaderScore - user.total}
