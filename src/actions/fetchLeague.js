@@ -3,6 +3,7 @@
 export function fetchLeague(leagueId) {
 
   let leagueManagers = {}
+  let latestGameweek
 
   return (dispatch) => {
     fetch(`https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/leagues-classic/${leagueId}/standings/`)
@@ -48,6 +49,7 @@ export function fetchLeague(leagueId) {
           let i = 0
           leagueManagers.forEach((manager => {
             leagueManagers[i].points = data[i].current
+            latestGameweek = data[0].current.length
             i++
           }))
         })
@@ -56,7 +58,7 @@ export function fetchLeague(leagueId) {
         .then(transfers => {
           let i = 0
           leagueManagers.forEach((manager => {
-            leagueManagers[i].transfers = transfers[i]
+            leagueManagers[i].transfers = transfers[i].filter(el => el.event === latestGameweek)
             i++
           }))
         })
