@@ -2,7 +2,6 @@ import React from 'react';
 import Standings from '../components/Standings';
 import StandingsInput from '../components/StandingsInput';
 import LeagueGraph from '../components/LeagueGraph';
-import GameweekInformation from '../components/transferInformation/GameweekInformation';
 import { fetchLeague } from '../actions/fetchLeague';
 import { connect } from 'react-redux';
 
@@ -14,7 +13,6 @@ class StandingsContainer extends React.Component {
       <div>
         <StandingsInput fetchLeague={this.props.fetchLeague}/>
         <Standings managers={this.props.managers}/>
-        <GameweekInformation />
       </div>
     )
   }
