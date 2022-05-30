@@ -1,44 +1,20 @@
 import React from 'react';
 import PlayerElementJSON from '../jsonData/PlayerElementJSON';
-// import TBTransferData from '../jsonData/TBTransferData';
 
 const GameweekInformation = (props) => {
-
-  let transferData
-
-  if (props.manager && props.manager.transfers) {
-    const transfers = props.manager.transfers
-    const latestGameweek = props.manager.points.length
-    const latestTransfers = transfers.filter(el => el.event === latestGameweek)
-    const transferInfo = []
-    const getInfo = latestTransfers.forEach(el => {
-      let plIn = PlayerElementJSON.find(player => el.element_in === player.id)
-      let plOut = PlayerElementJSON.find(player => el.element_out === player.id)
-      let transfer = {}
-      transfer['transferIn'] = plIn.web_name
-      transfer['transferOut'] = plOut.web_name
-      transferInfo.push(transfer)
-    })
-
-  transferData =
-    <div>
-      <h5>Latest Transfers</h5>
-      {transferInfo.map(transfer => {
-        return (
-          <div>
-            <p>{transfer.transferOut} > {transfer.transferIn}</p>
-          </div>
-        )
-      })}
-    </div>
-
-  } else {
-    transferData = null
-  }
+  /*Take transfer information from props and show each Managers transfers */
+  const transfers = props && props.manager.transfers
 
   return (
     <div>
-      {transferData}
+      {transfers?.map(el => {
+        let playerIn = PlayerElementJSON.find(player => el.element_in === player.id)
+        let playerOut = PlayerElementJSON.find(player => el.element_out === player.id)
+
+        return (
+            <p>{playerOut?.web_name} > {playerIn?.web_name}</p>
+        )
+      })}
     </div>
   )
 }
