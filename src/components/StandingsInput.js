@@ -25,7 +25,7 @@ class StandingsInput extends React.Component {
     return(
       <div className="inputLeague">
         <form onSubmit={this.handleSubmit}>
-          <input type="text" name="user" value={this.state.input} onChange={this.handleChange}/>
+          <input type="text" name="user" placeholder="League ID" value={this.state.input} onChange={this.handleChange}/>
           <input type="submit" value="submit"/>
         </form>
       </div>

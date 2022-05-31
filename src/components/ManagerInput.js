@@ -25,7 +25,7 @@ class ManagerInput extends React.Component {
     return (
       <div className="inputManager">
         <form onSubmit={this.handleSubmit}>
-          <input type="text" name="user" value={this.state.input} onChange={this.handleChange}/>
+          <input type="text" name="user" placeholder="Manager ID" value={this.state.input} onChange={this.handleChange}/>
           <input type="submit" value="submit"/>
         </form>
       </div>
