@@ -35,7 +35,7 @@ const Standings = (props) => {
     <div className="standings">
     {props.managers ?
       <Grid item md={12}>
-        <Item key={leagueName}>
+        <Item key={leagueName} sx={{backgroundColor: '#28282a'}}>
             <h2>{leagueName}</h2>
         </Item>
       </Grid>
