@@ -33,9 +33,9 @@ const Standings = (props) => {
 
   return (
     <div className="standings">
-    {props.manager ?
+    {props.managers ?
       <Grid item md={12}>
-        <Item>
+        <Item key={leagueName}>
             <h2>{leagueName}</h2>
         </Item>
       </Grid>
@@ -63,7 +63,7 @@ const Standings = (props) => {
           {props.managers && chasers.map(user => {
             return (
               <Grid item xs={6}>
-                <Item>
+                <Item key={user.id}>
                   <div className="standings-chasers" key={user.id}>
                   <h3>{moment.localeData().ordinal(user.rank_sort)}</h3>
                   <h5>{user.player_name} - {user.entry_name}</h5>
