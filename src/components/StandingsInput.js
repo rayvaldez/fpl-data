@@ -1,4 +1,5 @@
 import React from 'react';
+import Box from '@mui/material/Box';
 
 class StandingsInput extends React.Component {
 
@@ -23,12 +24,17 @@ class StandingsInput extends React.Component {
 
   render() {
     return(
-      <div className="inputLeague">
+      <Box className="inputLeague" sx={{
+        justifyContent: 'center',
+        alignItems: 'center',
+        display: 'flex',
+        height: '5vh'
+      }}>
         <form onSubmit={this.handleSubmit}>
           <input type="text" name="user" placeholder="League ID" value={this.state.input} onChange={this.handleChange}/>
           <input type="submit" value="submit"/>
         </form>
-      </div>
+      </Box>
     )
   }
 }
