@@ -12,12 +12,20 @@ const PhoneNav = () => {
   const [value, setValue] = useState(0)
   return (
     <div>
-      <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+      <Paper elevation={3} sx={{ 
+        position: 'fixed', 
+        bottom: 0, 
+        left: 0, 
+        right: 0 
+      }}>
         <BottomNavigation
           showLabels
           value={value}
           onChange={(event, newValue) => {
             setValue(newValue);
+          }}
+          sx={{
+            backgroundColor: '#28282a !important'
           }}
         >
           <BottomNavigationAction
