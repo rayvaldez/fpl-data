@@ -33,19 +33,19 @@ const PhoneNav = () => {
             to="/"
             label="Home"
             value="home"
-            icon={<HomeRoundedIcon />} />
+            icon={<HomeRoundedIcon sx={{ color: '#39FF14', opacity: '70%'}}/>} />
           <BottomNavigationAction
             component={Link}
             to="/manager"
             label="Manager"
             value="manager"
-            icon={<PersonOutlineRoundedIcon />} />
+            icon={<PersonOutlineRoundedIcon sx={{ color: '#39FF14', opacity: '70%'}}/>} />
           <BottomNavigationAction
             component={Link}
             to="/standings"
             label="Standings"
             value="standings"
-            icon={<GroupsRoundedIcon />} />
+            icon={<GroupsRoundedIcon sx={{ color: '#39FF14', opacity: '70%'}}/>} />
         </BottomNavigation>
       </Paper>
     </div>
