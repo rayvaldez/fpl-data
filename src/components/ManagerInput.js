@@ -1,5 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 class ManagerInput extends React.Component {
 
@@ -28,11 +30,32 @@ class ManagerInput extends React.Component {
         justifyContent: 'center',
         alignItems: 'center',
         display: 'flex',
-        height: '5vh'
+        height: '10vh'
       }}>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" name="user" placeholder="Manager ID" value={this.state.input} onChange={this.handleChange}/>
-          <input type="submit" value="submit"/>
+          <TextField
+            size="small"
+            id="outlined-basic" 
+            label="Manager ID" 
+            variant="outlined" 
+            value={this.state.input}
+            onChange={this.handleChange}
+            inputProps={{ style: { fontSize: 15 }}}
+            sx={{
+              input: {
+                background: "#FAF9F6",
+                height: "2.7vh"
+              }
+            }}
+          />
+          <Button 
+            variant="contained" 
+            type="submit" 
+            value="submit"
+            size="medium"
+            style={{ fontSize: '0.8rem'}}
+            sx={{ height: "5.6vh", ml: "1vw" }}
+          >Submit</Button>
         </form>
       </Box>
     )
