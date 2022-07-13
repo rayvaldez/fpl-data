@@ -15,7 +15,9 @@ const Header = () => {
       backgroundColor: '#28282a'
     }}>
       <ThemeProvider theme={theme}>
-        <Typography variant="h4" align="center">FPL Data</Typography>
+        <Typography variant="h4" align="center" sx={{
+          color: '#FAF9F6'
+        }}>FPL Data</Typography>
       </ThemeProvider>
     </Box>
   )
