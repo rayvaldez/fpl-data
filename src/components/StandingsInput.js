@@ -1,5 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 class StandingsInput extends React.Component {
 
@@ -31,8 +33,29 @@ class StandingsInput extends React.Component {
         height: '5vh'
       }}>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" name="user" placeholder="League ID" value={this.state.input} onChange={this.handleChange}/>
-          <input type="submit" value="submit"/>
+          <TextField
+            size="small"
+            id="outlined-basic" 
+            label="League ID" 
+            variant="outlined" 
+            value={this.state.input}
+            onChange={this.handleChange}
+            inputProps={{ style: { fontSize: 13 }}}
+            sx={{
+              input: {
+                background: "#FAF9F6",
+                height: "2vh"
+              }
+            }}
+          />          
+          <Button 
+            variant="contained" 
+            type="submit" 
+            value="submit"
+            size="medium"
+            style={{ fontSize: '0.8rem'}}
+            sx={{ height: "5vh", ml: "1vw" }}
+          >Submit</Button>
         </form>
       </Box>
     )
