@@ -6,13 +6,21 @@ import React from 'react';
 const Manager = (props) => {
 
   return (
-    <Box className="manager">
+    <Box className="manager"
+      sx={{
+        height: '70vh',
+        p: '0.1em 1em',
+        m: '2vh 4vw 2vh 4vw',
+        bgcolor: '#36363a',
+        borderRadius: '10px'
+      }}
+    >
       <Grid item xs={7}>
         <Typography variant="h6" sx={{
           color: '#FAF9F6',
           mt: '2vh'
           }}>
-        {props.manager.first_name} {props.manager.last_name} - {props.manager.team_name}
+        {props.manager.first_name} {props.manager.last_name} {props.manager.team_name}
         </Typography>
       </Grid>
       {props.manager && props.manager.current && props.manager.current.map(user => {
