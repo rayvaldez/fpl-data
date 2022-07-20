@@ -53,8 +53,7 @@ class ManagerInput extends React.Component {
             type="submit" 
             value="submit"
             size="medium"
-            style={{ fontSize: '0.8rem'}}
-            sx={{ height: "5.6vh", ml: "1vw" }}
+            sx={{ ml: "1vw" }}
           >Submit</Button>
         </form>
       </Box>
