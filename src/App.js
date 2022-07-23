@@ -11,8 +11,8 @@ class App extends React.Component {
     return (
       <Box sx={{
         width: '100%',
-        height: '85vh',
-        backgroundColor: '#28282a'
+        height: '95vh',
+        backgroundColor: '#151515'
       }}>
         <Routes>
           <Route path="/standings" element={<StandingsContainer />} />
