@@ -12,12 +12,22 @@ const Header = () => {
   return (
     <Box sx={{
       width: '100%',
-      backgroundColor: '#28282a'
+      backgroundColor: '#151515'
     }}>
       <ThemeProvider theme={theme}>
-        <Typography variant="h4" align="center" sx={{
-          color: '#FAF9F6'
-        }}>FPL Data</Typography>
+        <Typography variant="h4" sx={{
+          fontFamily: 'Masque',
+          fontSize: '1.5rem',
+          color: '#FAF9F6',
+          p: '.8rem 0.7em'
+        }}>FPL</Typography>
+        <Typography variant="h4" sx={{
+          fontFamily: 'Masque',
+          fontSize: '.95rem',
+          color: '#FAF9F6',
+          mt: '-1.25rem',
+          p: '0 0.9em'
+        }}>Rank</Typography>
       </ThemeProvider>
     </Box>
   )
