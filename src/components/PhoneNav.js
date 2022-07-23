@@ -25,7 +25,7 @@ const PhoneNav = () => {
             setValue(newValue);
           }}
           sx={{
-            backgroundColor: '#28282a !important',
+            backgroundColor: '#151515 !important',
             '& .Mui-selected': {
               '& .MuiBottomNavigationAction-label': {
                 color: '#39FF14'
