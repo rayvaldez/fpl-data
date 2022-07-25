@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import './App.css';
 import StandingsContainer from './containers/StandingsContainer';
 import ManagerContainer from './containers/ManagerContainer';
+import LandingContainer from './containers/LandingContainer';
 import { Routes, Route } from 'react-router-dom';
 
 class App extends React.Component {
@@ -15,6 +16,7 @@ class App extends React.Component {
         backgroundColor: '#151515'
       }}>
         <Routes>
+          <Route path="/" element={<LandingContainer />} />
           <Route path="/standings" element={<StandingsContainer />} />
           <Route path="/manager" element={<ManagerContainer />} />
         </Routes>
