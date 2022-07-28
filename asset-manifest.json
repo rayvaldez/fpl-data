@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/fpl-data/static/css/main.97123a6e.css",
-    "main.js": "/fpl-data/static/js/main.a0947c93.js",
+    "main.js": "/fpl-data/static/js/main.c115d4aa.js",
     "static/js/787.9ecdd429.chunk.js": "/fpl-data/static/js/787.9ecdd429.chunk.js",
     "static/media/MASQUE__.ttf": "/fpl-data/static/media/MASQUE__.ed146339f9d956438399.ttf",
     "index.html": "/fpl-data/index.html",
     "main.97123a6e.css.map": "/fpl-data/static/css/main.97123a6e.css.map",
-    "main.a0947c93.js.map": "/fpl-data/static/js/main.a0947c93.js.map",
+    "main.c115d4aa.js.map": "/fpl-data/static/js/main.c115d4aa.js.map",
     "787.9ecdd429.chunk.js.map": "/fpl-data/static/js/787.9ecdd429.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.97123a6e.css",
-    "static/js/main.a0947c93.js"
+    "static/js/main.c115d4aa.js"
   ]
 }
