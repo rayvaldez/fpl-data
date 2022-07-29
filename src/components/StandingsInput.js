@@ -30,7 +30,7 @@ class StandingsInput extends React.Component {
         justifyContent: 'center',
         alignItems: 'center',
         display: 'flex',
-        height: '5vh'
+        height: '10vh'
       }}>
         <form onSubmit={this.handleSubmit}>
           <TextField
@@ -40,11 +40,11 @@ class StandingsInput extends React.Component {
             variant="outlined" 
             value={this.state.input}
             onChange={this.handleChange}
-            inputProps={{ style: { fontSize: 13 }}}
+            inputProps={{ style: { fontSize: 15 }}}
             sx={{
               input: {
                 background: "#FAF9F6",
-                height: "2vh"
+                height: "1.9vh"
               }
             }}
           />          
@@ -52,8 +52,8 @@ class StandingsInput extends React.Component {
             variant="contained" 
             type="submit" 
             value="submit"
-            size="medium"
-            style={{ fontSize: '0.8rem'}}
+            size="small"
+            style={{ ml: "1vw" }}
             sx={{ height: "5vh", ml: "1vw" }}
           >Submit</Button>
         </form>
