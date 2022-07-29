@@ -19,14 +19,14 @@ const Header = () => {
           fontFamily: 'Masque',
           fontSize: '1.5rem',
           color: '#FAF9F6',
-          p: '.8rem 0.7em'
+          p: '.8rem 0.9em'
         }}>FPL</Typography>
         <Typography variant="h4" sx={{
           fontFamily: 'Masque',
           fontSize: '.95rem',
           color: '#FAF9F6',
           mt: '-1.25rem',
-          p: '0 0.9em'
+          p: '0 1.2em'
         }}>Rank</Typography>
       </ThemeProvider>
     </Box>
