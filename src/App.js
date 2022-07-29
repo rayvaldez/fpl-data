@@ -13,7 +13,8 @@ class App extends React.Component {
       <Box sx={{
         width: '100%',
         height: '95vh',
-        backgroundColor: '#151515'
+        backgroundColor: '#151515',
+        pt: '3vh'
       }}>
         <Routes>
           <Route path="/" element={<LandingContainer />} />
