@@ -38,19 +38,19 @@ const PhoneNav = () => {
         >
           <BottomNavigationAction
             component={Link}
-            to="/"
+            to="/fpl-data"
             label="Home"
             value="home"
             icon={<HomeRoundedIcon sx={{ color: '#39FF14', opacity: '70%'}}/>} />
           <BottomNavigationAction
             component={Link}
-            to="/manager"
+            to="/fpl-data/manager"
             label="Manager"
             value="manager"
             icon={<PersonOutlineRoundedIcon sx={{ color: '#39FF14', opacity: '70%'}}/>} />
           <BottomNavigationAction
             component={Link}
-            to="/standings"
+            to="/fpl-data/standings"
             label="Standings"
             value="standings"
             icon={<GroupsRoundedIcon sx={{ color: '#39FF14', opacity: '70%'}}/>} />
