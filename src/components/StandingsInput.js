@@ -53,8 +53,7 @@ class StandingsInput extends React.Component {
             type="submit" 
             value="submit"
             size="small"
-            style={{ ml: "1vw" }}
-            sx={{ height: "5vh", ml: "1vw" }}
+            sx={{ ml: "1vw" }}
           >Submit</Button>
         </form>
       </Box>
