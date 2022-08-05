@@ -34,8 +34,11 @@ const Standings = (props) => {
   return (
     <div className="standings">
     {props.managers ?
-      <Grid item md={12}>
-        <Item key={leagueName} sx={{backgroundColor: '#28282a'}}>
+      <Grid item md={12} sx={{
+        borderRadius: "10px",
+        m: '2vh 4vw 2vh 4vw'        
+      }}>
+        <Item key={leagueName} sx={{backgroundColor: '#151515', color: '#FAF9F6'}}>
             <h2>{leagueName}</h2>
         </Item>
       </Grid>
