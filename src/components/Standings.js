@@ -1,10 +1,7 @@
 import React from 'react';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import { withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
+import Typography from "@mui/material/Typography";
 import GameweekInformation from '../components/transferInformation/GameweekInformation';
 
 
@@ -17,76 +14,66 @@ const Standings = (props) => {
   const leader = props.managers && props.managers.slice(0, 1)
   const chasers = props.managers.slice(1)
 
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.primary,
-  }));
-
-  const RedTextTypography = withStyles({
-    root: {
-      color: "#dd2c00"
-    }
-  })(Typography);
-
   return (
-    <div className="standings">
+    <Box sx={{
+      height: '100%',
+      backgroundColor: '#151515'
+      }}
+    >
+    {/* If props are present, render the name of the league */}
     {props.managers ?
-      <Grid item md={12} sx={{
+      <Grid item md={12} key={leagueName} sx={{
         borderRadius: "10px",
         m: '2vh 4vw 2vh 4vw'        
       }}>
-        <Item key={leagueName} sx={{backgroundColor: '#151515', color: '#FAF9F6'}}>
-            <h2>{leagueName}</h2>
-        </Item>
+        <Box sx={{ color: '#FAF9F6', textAlign: 'center'}}>
+            <Typography variant='h5'>{leagueName}</Typography>
+        </Box>
       </Grid>
     : null}
+
+    {/* Render the leader of the league */}
       {props.managers && leader.map(user => {
         return (
-          <Grid item xs={12}>
-            <Item key={user.id}>
-              <div className="standings-leader" key={user.id}>
-                <h3>{moment.localeData().ordinal(user.rank_sort)}</h3>
-                <h4>{user.player_name}</h4>
-                <h5>{user.entry_name}</h5>
-                <p>Total Points - {user.total}</p>
-                <GameweekInformation manager={user}/>
-              </div>
-            </Item>
+          <Grid item xs={12} key={user.id}>
+            <Box sx={{ m: '0 0.9em 0.35em 0.9em', textAlign: 'center', backgroundColor: '#FAF9F6', borderRadius: '5px'}}>
+              <Typography variant='button'>{moment.localeData().ordinal(user.rank_sort)}</Typography>
+              <Typography variant='subtitle2' >{user.player_name}</Typography>
+              <Typography variant='body1' >{user.entry_name}</Typography>
+              <Typography variant='caption'>Total Points - {user.total}</Typography>
+              <GameweekInformation manager={user}/>
+            </Box>
           </Grid>
         )
       })}
 
-      <br/>
-
-      <Box sx={{ flexGrow: 1}}>
+      {/* Render the rest of the league */}
+      <Box sx={{ flexGrow: 1, marginLeft: '14px', marginRight: '14px'}}>
         <Grid container spacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           {props.managers && chasers.map(user => {
             return (
-              <Grid item xs={6}>
-                <Item key={user.id}>
-                  <div className="standings-chasers" key={user.id}>
-                  <h3>{moment.localeData().ordinal(user.rank_sort)}</h3>
-                  <h5>{user.player_name} - {user.entry_name}</h5>
-                  <p>Total Points - {user.total}</p>
+              <Grid item xs={6} key={user.id} sx={{
+              }}>
+                <Box sx={{ marginBottom: '-0.9em', backgroundColor: '#FAF9F6', borderRadius: '5px', textAlign: 'center'}}>
+                  <Typography variant='button'>{moment.localeData().ordinal(user.rank_sort)}</Typography>
+                  <Typography variant='subtitle2' >{user.player_name}</Typography>
+                  <Typography variant='body2' >{user.entry_name}</Typography>
+                  <Typography variant='caption'>Total Points - {user.total}</Typography>
                   <GameweekInformation manager={user}/>
                   {leaderScore - user.total > 0 ?
-                    <RedTextTypography variant="caption" display="block" gutterBottom>
+                    <Typography variant="caption" display="block" gutterBottom sx={{ color: "#dd2c00" }}>
                       Points from 1st {leaderScore - user.total}
-                    </RedTextTypography>
+                    </Typography>
                     : null}
-                  </div>
-                </Item>
+                </Box>
               </Grid>
             )
           })}
         </Grid>
       </Box>
 
-      <br/><br/><br/><br/>
-    </div>
+      <br/><br/><br/><br/><br></br>
+    </Box>
   )
 }
 
