@@ -12,7 +12,6 @@ class ManagerContainer extends React.Component {
       <div className="managerContainer">
         <ManagerInput fetchManager={this.props.fetchManager}/>
         <Manager manager={this.props.manager}/>
-        <ManagerGraph manager={this.props.manager}/>
       </div>
     )
   }
