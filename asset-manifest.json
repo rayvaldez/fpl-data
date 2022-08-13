@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/fpl-data/static/css/main.b0ee8522.css",
-    "main.js": "/fpl-data/static/js/main.a02b76c1.js",
+    "main.js": "/fpl-data/static/js/main.2150367e.js",
     "static/js/787.9ecdd429.chunk.js": "/fpl-data/static/js/787.9ecdd429.chunk.js",
+    "static/media/Premier-League-White.png": "/fpl-data/static/media/Premier-League-White.f8d58652c7c0c4311c44.png",
     "static/media/roboto-all-500-normal.woff": "/fpl-data/static/media/roboto-all-500-normal.0ab669b7a0d19b178f57.woff",
     "static/media/roboto-all-700-normal.woff": "/fpl-data/static/media/roboto-all-700-normal.a457fde362a540fcadff.woff",
     "static/media/roboto-all-400-normal.woff": "/fpl-data/static/media/roboto-all-400-normal.c5d001fa922fa66a147f.woff",
     "static/media/roboto-all-300-normal.woff": "/fpl-data/static/media/roboto-all-300-normal.168d6383e73339293ac3.woff",
-    "static/media/premier-league.png": "/fpl-data/static/media/premier-league.5d3e78e58f2d330cc139.png",
     "static/media/MASQUE__.ttf": "/fpl-data/static/media/MASQUE__.ed146339f9d956438399.ttf",
     "static/media/roboto-latin-500-normal.woff2": "/fpl-data/static/media/roboto-latin-500-normal.f25d774ecfe0996f8eb5.woff2",
     "static/media/roboto-latin-700-normal.woff2": "/fpl-data/static/media/roboto-latin-700-normal.227c93190fe7f82de3f8.woff2",
@@ -39,11 +39,11 @@
     "static/media/roboto-greek-ext-700-normal.woff2": "/fpl-data/static/media/roboto-greek-ext-700-normal.bd9854c751441ccc1a70.woff2",
     "index.html": "/fpl-data/index.html",
     "main.b0ee8522.css.map": "/fpl-data/static/css/main.b0ee8522.css.map",
-    "main.a02b76c1.js.map": "/fpl-data/static/js/main.a02b76c1.js.map",
+    "main.2150367e.js.map": "/fpl-data/static/js/main.2150367e.js.map",
     "787.9ecdd429.chunk.js.map": "/fpl-data/static/js/787.9ecdd429.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b0ee8522.css",
-    "static/js/main.a02b76c1.js"
+    "static/js/main.2150367e.js"
   ]
 }
