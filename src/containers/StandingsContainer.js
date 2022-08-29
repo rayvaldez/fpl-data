@@ -4,16 +4,21 @@ import StandingsInput from '../components/StandingsInput';
 import LeagueGraph from '../components/LeagueGraph';
 import { fetchLeague } from '../actions/fetchLeague';
 import { connect } from 'react-redux';
+import Box from '@mui/material/Box';
+
 
 class StandingsContainer extends React.Component {
 
   // <LeagueGraph leagueData={this.props.managers}/>
   render() {
     return(
-      <div>
+      <Box sx={{
+        minHeight: '100vh',
+        backgroundColor: '#151515'
+      }}>     
         <StandingsInput fetchLeague={this.props.fetchLeague}/>
         <Standings managers={this.props.managers}/>
-      </div>
+      </Box>
     )
   }
 }
