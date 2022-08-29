@@ -26,7 +26,7 @@ class App extends React.Component {
       <ThemeProvider theme={theme}>
         <Box sx={{
           width: '100%',
-          height: '95vh',
+          height: '100%',
           backgroundColor: '#151515',
           pt: '1vh'
         }}>
