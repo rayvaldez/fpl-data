@@ -1,26 +1,36 @@
 import React from 'react';
+import Box from '@mui/material/Box';
+import LandingInformation from '../components/LandingTeamInformation';
+import DeadlineTimer from '../components/DeadlineTimer';
+import CurrentGameweekFixtures from '../components/CurrentGameweekFixtures';
+import PreviousGameweekFixtures from '../components/PreviousGameweekFixtures';
+
 import { fetchInformation } from '../actions/fetchInformation';
 import { connect } from 'react-redux';
 
 class LandingContainer extends React.Component {
 
   componentDidMount() {
-    this.props.fetchInformation();
+    this.props.fetchInformation()
   }
-  
-  render() {   
+
+  render() {
     return (
-      <div className="landingContainer">
-        Landing Container
-      </div>
+      <Box sx={{ paddingBottom: '10vh' }}>
+        <DeadlineTimer />
+        <CurrentGameweekFixtures fixtures={this.props.information.fixtures}/>
+        <PreviousGameweekFixtures fixtures={this.props.information.fixtures}/>
+        <LandingInformation />
+      </Box>
     )
   }
 }
 
 const mapStateToProps = state => {
   return {
-    information: state.informationReducer.info
+    information: state.informationReducer.information
   }
 }
 
-export default connect(mapStateToProps, {fetchInformation})(LandingContainer);
+
+export default connect(mapStateToProps, { fetchInformation })(LandingContainer);
