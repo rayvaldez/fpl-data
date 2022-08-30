@@ -28,7 +28,8 @@ class App extends React.Component {
           width: '100%',
           height: '100%',
           backgroundColor: '#151515',
-          pt: '1vh'
+          pt: '1vh',
+          overflow: 'hidden'
         }}>
           <Routes>
             <Route path="/fpl-data" element={<LandingContainer />} />
