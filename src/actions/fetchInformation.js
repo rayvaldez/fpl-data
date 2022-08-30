@@ -11,7 +11,6 @@ export function fetchInformation() {
     .then(res => (res.ok ? res : Promise.reject(res)))
     .then(res => res.json())
     .then(data => {
-      console.log(data)
       information.general = data
       return data
     });
@@ -20,7 +19,6 @@ export function fetchInformation() {
     .then(res => (res.ok ? res : Promise.reject(res)))
     .then(res => res.json())
     .then(data => {
-      console.log(data)
       information.fixtures = data
       return data
     });
