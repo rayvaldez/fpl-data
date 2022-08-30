@@ -12,7 +12,8 @@ const PhoneNav = () => {
   const [value, setValue] = useState(0)
   return (
     <Paper elevation={3} sx={{ 
-      position: 'fixed', 
+      position: 'fixed',
+      width: '100vw', 
       bottom: 0, 
       left: 0, 
       right: 0,
