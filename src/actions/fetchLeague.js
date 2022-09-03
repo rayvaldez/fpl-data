@@ -1,5 +1,3 @@
-
-
 export function fetchLeague(leagueId) {
 
   let leagueManagers = {}
@@ -31,6 +29,19 @@ export function fetchLeague(leagueId) {
           })
           return Promise.all(requests)
         }
+        
+        // Work on a fix to get latest Gameweek (currently have to hardcode gameweek)
+        const fetchManagerPicks = async (leagueManagers) => {
+          const requests = leagueManagers.map((manager) => {
+            const url = `https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/entry/${manager.entry}/event/6/picks/`
+            return fetchManagerInfo(url)
+            .then(a => a.json())
+            .then(data => {
+              return data
+            })
+          })
+          return Promise.all(requests)
+        }
 
         const fetchManagerTransferHistory = async (leagueManagers) => {
           const requests = leagueManagers.map((manager) => {
@@ -44,28 +55,39 @@ export function fetchLeague(leagueId) {
           return Promise.all(requests)
         }
 
-        fetchManagerHistory(leagueManagers)
-        .then(data => {
-          let i = 0
-          leagueManagers.forEach((manager => {
-            leagueManagers[i].points = data[i].current
-            latestGameweek = data[0].current.length
-            i++
-          }))
-        })
+        async function fetchPickTransferHistory() {
+          const history = await fetchManagerHistory(leagueManagers)
+          .then(data => {
+            let i = 0
+            leagueManagers.forEach((manager => {
+              leagueManagers[i].points = data[i].current
+              latestGameweek = data[0].current.length
+              i++
+            }))
+          })
 
-        fetchManagerTransferHistory(leagueManagers)
-        .then(transfers => {
-          let i = 0
-          leagueManagers.forEach((manager => {
-            leagueManagers[i].transfers = transfers[i].filter(el => el.event === latestGameweek)
-            i++
-          }))
-        })
-      })
-      .then(() => dispatch({
+          const picks = await fetchManagerPicks(leagueManagers)
+          .then(data => {
+            let i = 0
+            leagueManagers.forEach((manager => {
+              leagueManagers[i].picks = data[i]
+              i++
+            }))
+          })
+
+          const transfers = await fetchManagerTransferHistory(leagueManagers)
+          .then(transfers => {
+            let i = 0
+            leagueManagers.forEach((manager => {
+              leagueManagers[i].transfers = transfers[i].filter(el => el.event === latestGameweek)
+              i++
+            }))
+          })     
+        }
+        
+        fetchPickTransferHistory().then(() => dispatch({
         type: 'FETCH_MANAGERS',
         payload: leagueManagers
       }));
-  }
-}
+    }
+)}}
