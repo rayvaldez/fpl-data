@@ -2,6 +2,8 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import React from 'react';
 import FixtureResults from './FixtureResults';
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 const TimeVResults = (props) => {
   const fixtures = props && props.fixtures
@@ -11,18 +13,26 @@ const TimeVResults = (props) => {
   { weekday: 'long', month: 'long', day: 'numeric'}
   )
 
-  return (
-    <Box>
-      <Typography variant='subtitle2' sx={{ color: '#faf9f6', textAlign: 'center' }}>
-        {date}
-      </Typography>
+  if (fixtureDate) {
+    return (
       <Box>
-        {fixtures.map(fixture =>
-          <FixtureResults key={fixture?.code} fixtures={fixture} />
-        )}
+        <Typography variant='subtitle2' sx={{ color: '#faf9f6', textAlign: 'center' }}>
+          {date}
+        </Typography>
+        <Box>
+          {fixtures.map(fixture =>
+            <FixtureResults key={fixture?.code} fixtures={fixture} />
+          )}
+        </Box>
       </Box>
-    </Box>
-  )
+    )
+  } else  {
+    return (
+      <Box sx={{ textAlign: 'center'}}>
+        <CircularProgress fontSize='small' sx={{ color: '#faf9f6', alignItems: 'center'}}/>
+      </Box>
+    ) 
+  }
 }
 
 export default TimeVResults;
