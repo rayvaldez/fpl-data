@@ -4,6 +4,8 @@ export function fetchLeague(leagueId) {
   let latestGameweek
 
   return (dispatch) => {
+    dispatch({ type: 'FETCHING_MANAGERS'});
+
     fetch(`https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/leagues-classic/${leagueId}/standings/`)
       .then(res => (res.ok ? res : Promise.reject(res)))
       .then(res => res.json())
@@ -86,7 +88,7 @@ export function fetchLeague(leagueId) {
         }
         
         fetchPickTransferHistory().then(() => dispatch({
-        type: 'FETCH_MANAGERS',
+        type: 'FETCHED_MANAGERS',
         payload: leagueManagers
       }));
     }
