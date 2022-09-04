@@ -9,7 +9,6 @@ import Box from '@mui/material/Box';
 
 class StandingsContainer extends React.Component {
 
-  // <LeagueGraph leagueData={this.props.managers}/>
   render() {
     return(
       <Box sx={{
@@ -17,7 +16,8 @@ class StandingsContainer extends React.Component {
         backgroundColor: '#151515'
       }}>     
         <StandingsInput fetchLeague={this.props.fetchLeague}/>
-        <Standings managers={this.props.managers}/>
+        <Standings managers={this.props.managers} isLoading={this.props.isLoading}/>
+        <LeagueGraph leagueData={this.props.managers}/>
       </Box>
     )
   }
@@ -25,7 +25,8 @@ class StandingsContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    managers: state.leagueReducer.managers
+    managers: state.leagueReducer.managers,
+    isLoading: state.leagueReducer.isLoading
   }
 }
 
