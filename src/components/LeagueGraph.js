@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import Box from "@mui/material/Box";
+import React from "react";
 import {
   LineChart,
   Line,
@@ -11,11 +12,6 @@ import {
 
 
 const LeagueGraph = (props) => {
-
-  const useForceUpdate = () => {
-    const [value, setValue] = useState(0); // integer state
-    return () => setValue(value => value + 1); // update the state to force render
-  };
 
   // Create an array of team names to use for the graph
   const teamNames = []
@@ -74,29 +70,27 @@ const LeagueGraph = (props) => {
           type="monotone"
           dataKey={value}
           stroke={getRandomColor()}
-          strokeWidth={1.2}
+          strokeWidth={1}
           animationBegin={1000}
         />
       ));
       return lines;
     }
 
-
     graph =
-    <div>
+    <Box sx={{ ml: '-0.7em', pb: '4em'}}>
       {gData && gData.length > 0 &&
         <LineChart
-        width={850}
-        height={500}
+        width={450}
+        height={400}
         data={gData}
         margin={{
           top: 5,
-          right: 30,
-          left: 20,
+          right: 25,
           bottom: 5
         }}
         >
-        <CartesianGrid strokeDasharray="3 3" />
+        <CartesianGrid strokeDasharray="1 1" />
         <XAxis dataKey="event"/>
         <YAxis />
         <Tooltip />
@@ -104,18 +98,15 @@ const LeagueGraph = (props) => {
         {renderLines()}
         </LineChart>
       }
-    </div>
+    </Box>
 
   } else {
     graph = null
   };
 
-  let count = 0
-  let forceUpdate = useForceUpdate()
-
   return (
     <div>
-      {graphData && graphData.length > 0 ? graph : <button onClick={forceUpdate}>View Graph</button>}
+      {graph}
     </div>
   );
 }
