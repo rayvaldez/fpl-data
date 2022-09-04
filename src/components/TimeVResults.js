@@ -29,7 +29,7 @@ const TimeVResults = (props) => {
   } else  {
     return (
       <Box sx={{ textAlign: 'center'}}>
-        <CircularProgress fontSize='small' sx={{ color: '#faf9f6', alignItems: 'center'}}/>
+        <CircularProgress size='1.5em' sx={{ color: '#faf9f6', alignItems: 'center'}}/>
       </Box>
     ) 
   }
