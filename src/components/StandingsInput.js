@@ -34,6 +34,9 @@ class StandingsInput extends React.Component {
       }}>
         <form onSubmit={this.handleSubmit}>
           <TextField
+            type='number'
+            inputMode='numeric'
+            pattern='[0-9]'
             size="small"
             id="outlined-basic" 
             label="League ID" 
