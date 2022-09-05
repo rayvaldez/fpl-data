@@ -4,6 +4,7 @@ export function fetchInformation() {
 
   let api1 = 'https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/bootstrap-static/';
   let api2 = 'https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/fixtures/';
+  let api3 = 'https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/dream-team/5/';
   
   return (dispatch) => {
 
@@ -23,7 +24,15 @@ export function fetchInformation() {
       return data
     });
 
-    Promise.all([promise1, promise2])
+    let promise3 = fetch(api3)
+    .then(res => (res.ok ? res : Promise.reject(res)))
+    .then(res => res.json())
+    .then(data => {
+      information.dreamTeam = data
+      return data
+    });
+
+    Promise.all([promise1, promise2, promise3])
     .then(() => dispatch({
       type: 'FETCH_INFORMATION',
       payload: information
