@@ -2,6 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import LandingInformation from '../components/LandingTeamInformation';
 import DeadlineTimer from '../components/DeadlineTimer';
+import DreamTeam from '../components/DreamTeam';
 import CurrentGameweekFixtures from '../components/CurrentGameweekFixtures';
 import PreviousGameweekFixtures from '../components/PreviousGameweekFixtures';
 
@@ -15,11 +16,13 @@ class LandingContainer extends React.Component {
   }
 
   render() {
+
     return (
       <Box sx={{ paddingBottom: '10vh' }}>
         <DeadlineTimer />
-        <CurrentGameweekFixtures fixtures={this.props.information.fixtures}/>
-        <PreviousGameweekFixtures fixtures={this.props.information.fixtures}/>
+        <CurrentGameweekFixtures fixtures={this.props.information.fixtures} />
+        <PreviousGameweekFixtures fixtures={this.props.information.fixtures} />
+        <DreamTeam team={this.props.information.dreamTeam} />
         <LandingInformation />
       </Box>
     )
