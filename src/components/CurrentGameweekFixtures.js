@@ -9,8 +9,8 @@ import TimeVResults from './TimeVResults';
 const LandingFixtureResults = (props) => {
 
   // Find next gameweek
-  const findNextGameweek = props.fixtures ? props.fixtures.find(element => element.finished === false) : null
-
+  const findNextGameweek = props.fixtures ? props.fixtures.find(element => element.event != null && element.finished === false) : null
+ 
   // Remember to revert this code!!!
   const gameweek = props.fixtures && findNextGameweek.event
 
