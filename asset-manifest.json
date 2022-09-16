@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/fpl-data/static/css/main.b0ee8522.css",
-    "main.js": "/fpl-data/static/js/main.828d578d.js",
+    "main.js": "/fpl-data/static/js/main.49958a1b.js",
     "static/js/787.9ecdd429.chunk.js": "/fpl-data/static/js/787.9ecdd429.chunk.js",
     "static/media/Premier-League-White.png": "/fpl-data/static/media/Premier-League-White.f8d58652c7c0c4311c44.png",
     "static/media/roboto-all-500-normal.woff": "/fpl-data/static/media/roboto-all-500-normal.0ab669b7a0d19b178f57.woff",
@@ -39,11 +39,11 @@
     "static/media/roboto-greek-ext-700-normal.woff2": "/fpl-data/static/media/roboto-greek-ext-700-normal.bd9854c751441ccc1a70.woff2",
     "index.html": "/fpl-data/index.html",
     "main.b0ee8522.css.map": "/fpl-data/static/css/main.b0ee8522.css.map",
-    "main.828d578d.js.map": "/fpl-data/static/js/main.828d578d.js.map",
+    "main.49958a1b.js.map": "/fpl-data/static/js/main.49958a1b.js.map",
     "787.9ecdd429.chunk.js.map": "/fpl-data/static/js/787.9ecdd429.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b0ee8522.css",
-    "static/js/main.828d578d.js"
+    "static/js/main.49958a1b.js"
   ]
 }
