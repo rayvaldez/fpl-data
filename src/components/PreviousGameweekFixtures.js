@@ -8,7 +8,7 @@ import TimeVResults from './TimeVResults';
 const LiveScore = (props) => {
 
   // Find next gameweek
-  const findNextGameweek = props.fixtures ? props.fixtures.find(element => element.finished === false) : null
+  const findNextGameweek = props.fixtures ? props.fixtures.find(element => element.event != null && element.finished === false) : null
 
   // Remember to revert this code!!!
   const gameweek = props.fixtures && findNextGameweek.event -1
@@ -109,7 +109,7 @@ const LiveScore = (props) => {
             {gameweek}
           </Typography>
         </Grid>
-      </Grid>  
+      </Grid>
       {nestedArray.length && nestedArray.map(fixtureArray => 
         <TimeVResults key={fixtureArray[0]?.code} fixtures={fixtureArray} />
       )}
