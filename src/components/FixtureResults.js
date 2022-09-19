@@ -1,15 +1,40 @@
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import React from 'react';
-import teamJSON from './jsonData/teamJSON'
+import teamJSON from './jsonData/teamJSON';
+import RectangleIcon from '@mui/icons-material/Rectangle';
 
 
 const FixtureResults = (props) => {
-
+  
   let homeTeam = '';
   let awayTeam = '';
   let homeScore = 0;
   let awayScore = 0;
+
+  const getDifficultyColor = (teamDifficulty) => {
+    if (teamDifficulty === 1) {
+      return (
+        <RectangleIcon fontSize='small' sx={{ color: '#2cba00' }}/>
+      )
+    } else if (teamDifficulty === 2) {
+      return (
+        <RectangleIcon fontSize='small' sx={{ color: '#a3ff00' }}/>
+      )
+    } else if (teamDifficulty === 3) {
+      return (
+        <RectangleIcon fontSize='small' sx={{ color: '#fff400' }}/>
+      )
+    } else if (teamDifficulty === 4) {
+      return (
+        <RectangleIcon fontSize='small' sx={{ color: '#ffa700' }}/>
+      )
+    } else if (teamDifficulty === 5) {
+      return (
+        <RectangleIcon fontSize='small' sx={{ color: '#fa2500' }}/>
+      )
+    }
+  }
 
   // eslint-disable-next-line no-unused-vars
   const getHomeTeam = teamJSON && teamJSON.forEach(element => {
@@ -66,7 +91,7 @@ const FixtureResults = (props) => {
   }
 
   return (
-    <Grid container spacing={3} sx={{
+    <Grid container sx={{
       color: '#FAF9F6',
       textAlign: 'center'
     }}
@@ -74,9 +99,15 @@ const FixtureResults = (props) => {
       <Grid item xs sx={{ textAlign: 'right' }}>
         {homeTeam}
       </Grid>
+      <Grid>
+        {getDifficultyColor(props.fixtures.team_a_difficulty)}
+      </Grid>
       <Grid item xs={2}> 
       {timeOrResult()}
       </Grid>
+      <Grid >
+        {getDifficultyColor(props.fixtures.team_h_difficulty)}
+      </Grid>  
       <Grid item xs sx={{ textAlign: 'left' }}>
         {awayTeam}
       </Grid>
