@@ -15,10 +15,12 @@ const Header = () => {
 
   return (
     <AppBar position="static" sx={{
-      backgroundColor: '#151515' }}>
-      <Toolbar disableGutters sx={{ width: '100vw'}}>          
+      backgroundColor: '#151515',
+      width: '100%'
+    }}>
+      <Toolbar disableGutters>          
         <ThemeProvider theme={theme}>
-          <Grid justify="space-between" container spacing={24}>
+          <Grid justify="space-between" container spacing={12}>
             <Grid item xs={6}>                
               <Typography variant="h4" sx={{
                 fontFamily: 'Masque',
@@ -36,7 +38,7 @@ const Header = () => {
               }}>Rank</Typography>
             </Grid>
             <Grid item xs={6}>
-              <Box sx={{ mt: '-0.5em', mb: '-0.8em', pl: '0.1em'}}>
+              <Box sx={{ mt: '-0.5em', mb: '-0.8em'}}>
                 <img src={PremierLeague} alt='logo' width="110" height="75" />
               </Box>                
             </Grid>
