@@ -1,16 +1,26 @@
 import DreamTeamPlayer from './DreamTeamPlayer';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import playerJSON from './jsonData/playerJSON';
 import Grid from '@mui/material/Grid';
 import Tooltip from '@mui/material/Tooltip';
 import CircularProgress from '@mui/material/CircularProgress';
 
-
 const DreamTeam = (props) => {
 
-  const topPlayer = props?.team && playerJSON.find(player => props.team.top_player.id === player.id)
+  const previousGW = props?.currentGW - 1
+  
+  let [ dreamTeam, setDreamTeam] = useState(null)
+  
+  useEffect(() => {
+    fetch(`https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/dream-team/${previousGW}/`)
+    .then(res => (res.ok ? res : Promise.reject(res)))
+    .then(res => res.json())
+    .then(data => setDreamTeam(data))
+  },[previousGW])
+
+  const topPlayer = playerJSON.find(player => dreamTeam?.top_player.id === player.id)
 
   const costString = (cost) => {
     if (cost.toString().length < 3) {
@@ -57,7 +67,7 @@ const DreamTeam = (props) => {
           textAlign: 'center' 
         }}>
           {topPlayer.web_name} <br></br>
-          {props.team.top_player.points} Points <br></br>
+          {dreamTeam.top_player.points} Points <br></br>
           £{costString(topPlayer.now_cost)}
         </Typography>
         <Grid container columnSpacing={{ xs: 1, sm: 1, m: 2 }}>
@@ -92,7 +102,7 @@ const DreamTeam = (props) => {
           </Grid>
 
         </Grid>
-        {props.team.team.map(player => 
+        {dreamTeam.team.map(player => 
           <DreamTeamPlayer key={player.element} player={player} />
           )
         }
@@ -101,10 +111,12 @@ const DreamTeam = (props) => {
   } else {
     return (
       <Box sx={{ textAlign: 'center'}}>
+        <Typography sx={{ color: '#faf9f6'}}>LOADING</Typography>
         <CircularProgress size='1.5em' sx={{ color: '#faf9f6', alignItems: 'center'}}/>
       </Box>
     ) 
   }
+  
 }
 
-export default DreamTeam
+export default DreamTeam;
