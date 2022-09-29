@@ -20,10 +20,10 @@ class LandingContainer extends React.Component {
     return (
       <Box sx={{ paddingBottom: '10vh' }}>
         <DeadlineTimer />
-        <CurrentGameweekFixtures fixtures={this.props.information.fixtures} />
-        <PreviousGameweekFixtures fixtures={this.props.information.fixtures} />
+        <CurrentGameweekFixtures fixtures={this.props.information.fixtures} currentGW={this.props.information.currentGW} />
+        <PreviousGameweekFixtures fixtures={this.props.information.fixtures} currentGW={this.props.information.currentGW} />
         <DreamTeam currentGW={this.props.information.currentGW} />
-        <Next5Fixtures fixtures={this.props.information.fixtures} />
+        <Next5Fixtures fixtures={this.props.information.fixtures} currentGW={this.props.information.currentGW} />
         <LandingInformation />
       </Box>
     )
