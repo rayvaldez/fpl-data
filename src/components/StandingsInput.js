@@ -8,7 +8,7 @@ class StandingsInput extends React.Component {
   state = {
     input: ''
   };
-
+  
   handleChange = (event) => {
     this.setState({
       input: event.target.value
@@ -18,12 +18,12 @@ class StandingsInput extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     console.log('fetching')
-    this.props.fetchLeague(this.state.input)
+    this.props.fetchLeague(this.state.input, this.props.currentGW)
     this.setState({
       input: ''
     });
   };
-
+  
   render() {
     return(
       <Box className="inputLeague" sx={{
