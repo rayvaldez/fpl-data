@@ -1,7 +1,7 @@
-export function fetchLeague(leagueId) {
+export function fetchLeague(leagueId, currentGW) {
 
   let leagueManagers = {}
-  let latestGameweek
+  let latestGameweek;
 
   return (dispatch) => {
     dispatch({ type: 'FETCHING_MANAGERS'});
@@ -32,10 +32,11 @@ export function fetchLeague(leagueId) {
           return Promise.all(requests)
         }
         
-        // Work on a fix to get latest Gameweek (currently have to hardcode gameweek)
+        // This function works only when users come from landing page
+        // currentGW gets its value from fetchInformation
         const fetchManagerPicks = async (leagueManagers) => {
           const requests = leagueManagers.map((manager) => {
-            const url = `https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/entry/${manager.entry}/event/6/picks/`
+            const url = `https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/entry/${manager.entry}/event/${currentGW}/picks/`
             return fetchManagerInfo(url)
             .then(a => a.json())
             .then(data => {
