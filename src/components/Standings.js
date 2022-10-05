@@ -21,11 +21,11 @@ const Standings = (props) => {
   const rankUporDown = (rank, lastRank) => {
     if (rank < lastRank) {
       return ( 
-      <ArrowDropUpIcon fontSize='small' sx={{ color: '#008000'}}/>
+      <ArrowDropUpIcon fontSize='small' sx={{ color: '#008000', verticalAlign: 'top'}}/>
       )
     } else if (rank > lastRank) {
       return (
-        <ArrowDropDownIcon fontSize='small' sx={{ color: '#dd2c00'}}/>
+        <ArrowDropDownIcon fontSize='small' sx={{ color: '#dd2c00', verticalAlign: 'top'}}/>
       )
     } else {
       return (
@@ -67,7 +67,7 @@ const Standings = (props) => {
                 {/* Rank Sort here */}
                 <Typography variant='subtitle2'>{user.player_name} {rankUporDown(user.rank, user.last_rank)} </Typography>
                 <Typography variant='body1' >{user.entry_name}</Typography>
-                <Typography variant='caption'>Gameweek points  {user.picks.entry_history.points}</Typography><br></br>
+                <Typography variant='caption'>Gameweek points  {user.picks.entry_history?.points}</Typography><br></br>
                 <GameweekPicks picks={user.picks?.picks}/>
                 <GameweekInformation transfers={user.transfers}/>
               </Box>
@@ -86,7 +86,7 @@ const Standings = (props) => {
                     <Typography variant='button'>{moment.localeData().ordinal(user.rank_sort)}</Typography>
                     <Typography variant='subtitle2' >{user.player_name} {rankUporDown(user.rank, user.last_rank)}</Typography>
                     <Typography variant='body2' >{user.entry_name}</Typography>
-                    <Typography variant='caption'>Gameweek points  {user.picks.entry_history.points}</Typography><br></br>
+                    <Typography variant='caption'>Gameweek points  {user.picks.entry_history?.points}</Typography><br></br>
                     <GameweekPicks picks={user.picks?.picks}/>
                     <GameweekInformation transfers={user.transfers}/>
                     {leaderScore - user.total > 0 ?
