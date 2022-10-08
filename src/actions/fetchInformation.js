@@ -1,7 +1,7 @@
 export function fetchInformation() {
 
-  let information = {}
-  let nextGW;
+  let information = {};
+  let currentGW;
   let api1 = 'https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/bootstrap-static/';
   let api2 = 'https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/fixtures/';
   // api3 has the gameweek hardcoded, work on a fix!
@@ -13,9 +13,11 @@ export function fetchInformation() {
     .then(res => (res.ok ? res : Promise.reject(res)))
     .then(res => res.json())
     .then(data => {
-      nextGW = data.events.find(element => element.finished === false)
-      information.general = data
-      information.currentGW = nextGW.id
+      currentGW = data.events.find(element => element.is_current === true);
+      information.general = data;
+      information.currentGW = currentGW.id;
+      information.nextGW = currentGW.id + 1;
+      information.previousGW = currentGW.id - 1;
       return data
     });
 
