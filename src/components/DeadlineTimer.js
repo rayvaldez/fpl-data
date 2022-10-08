@@ -1,12 +1,15 @@
 import { Box, Typography } from "@mui/material";
 import React, { useEffect, useState} from "react";
 
-const DeadlineTimer = () => {
+const DeadlineTimer = (props) => {
+
+  const nextDeadline = props.nextGW.deadline_time
 
   const calculateDeadline = () => {
     let year = new Date().getFullYear()
     
-    let difference = +new Date(`${year}-08-13 11:00:00`) - +new Date();
+    // let difference = +new Date(`${year}-10-08 13:30:00`) - +new Date();
+    let difference = +new Date(nextDeadline) - +new Date();
     
     let timeLeft = {};
     
@@ -41,8 +44,8 @@ const DeadlineTimer = () => {
     }
 
     timerComponents.push(
-      <span>
-        {timeLeft[interval]} {interval}{" "}
+      <span key={interval}>
+        {timeLeft[interval]} {interval} {" "}
       </span>
     );
   });
@@ -57,11 +60,11 @@ const DeadlineTimer = () => {
       p: '0.8em'
       }}
     >
-      <Typography variant='h5'>
-        GAMEWEEK 2 DEADLINE
+      <Typography sx={{ fontFamily: 'masque' }}>
+        GAMEWEEK DEADLINE
       </Typography>
       <Typography variant="subtitle2">
-        {timerComponents.length ? timerComponents : <span>Deadline Passed!</span>}
+        {timerComponents.length ? timerComponents : <span>Deadline Passed!</span>}<br></br>
       </Typography>
     </Box>
   )
