@@ -1,6 +1,5 @@
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography'
-import { integerPropType } from '@mui/utils';
 import React from 'react'
 import playerJSON from './jsonData/playerJSON'
 
