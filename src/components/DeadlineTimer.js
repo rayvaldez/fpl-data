@@ -3,7 +3,7 @@ import React, { useEffect, useState} from "react";
 
 const DeadlineTimer = (props) => {
 
-  const nextDeadline = props.nextGW.deadline_time
+  const nextDeadline = props.nextGW?.deadline_time
 
   const calculateDeadline = () => {
     let year = new Date().getFullYear()
