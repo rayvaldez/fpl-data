@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Box from '@mui/material/Box'
 import playerJSON from '../jsonData/playerJSON';
 import Typography from '@mui/material/Typography';
@@ -10,6 +10,8 @@ import InFormInput from './InFormInput';
 import InFormFilterGameweek from './InFormFilterGameweek';
 
 const InForm = ({fixtures, nextGW}) => {
+
+  const [input, setInput] = useState(8);
   
   let last5 = [];
   let bonusArray = [];
@@ -45,22 +47,25 @@ const InForm = ({fixtures, nextGW}) => {
     })
   }
 
-  // send this to InFormInput
+  const onSelectionUpdate = (stat) => {
+    setInput(stat);
+  }
+
   const bpsArray = () => {
     last5.forEach(fixture => {
-      mapThroughBonus(fixture.stats[9]?.a)
-      mapThroughBonus(fixture.stats[9]?.h)
+      mapThroughBonus(fixture.stats[input]?.a)
+      mapThroughBonus(fixture.stats[input]?.h)
     })
   }
 
   bpsArray()
-
+  
   const totalScore = bonusArray.map(element => {
     const sum = element.value.reduce((total, value) => total + value)
     const el = {element: element.element, value: sum}
     return el
   })
-
+  
   const sortByTotal = totalScore.sort((a, b) => a.value - b.value)
   sortByTotal.reverse()
 
@@ -79,7 +84,6 @@ const InForm = ({fixtures, nextGW}) => {
   filterByPosition(playerArray, 2, 4, defArray)
   filterByPosition(playerArray, 3, 4, midArray)
   filterByPosition(playerArray, 4, 2, fwdArray)
-
   // Mode is the most common number in the array
   // Median is the middle number of the array
 
@@ -102,10 +106,11 @@ const InForm = ({fixtures, nextGW}) => {
         color: '#faf9f6',
         textAlign: 'center'
       }}>
-        Players with the highest cumulative bonus point system points (bps) over the last 5 gameweeks.
+        Use the dropdown box to filter chosen statistic over the last 2-5 gameweeks
       </Typography>
+      <br></br>
       <Box sx={{ display: 'inline-flex'}}>
-        <InFormInput filter={bpsArray}/>
+        <InFormInput onSelectionUpdate={onSelectionUpdate}/>
         <InFormFilterGameweek />
       </Box>
       <Box label='touchline' sx={{
