@@ -9,12 +9,13 @@ import { styled } from '@mui/material/styles';
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
   'label + &': {
-    marginTop: theme.spacing(2),
+    marginTop: theme.spacing(0),
   },
   '& .MuiInputBase-input': {
     borderRadius: 4,
     position: 'relative',
-    backgroundColor: theme.palette.primary.light,
+    // backgroundColor: theme.palette.primary.light,
+    backgroundColor: '#faf9f6',
     border: '1px solid #22800a',
     fontSize: 14,
     padding: '10px 26px 10px 12px',
@@ -40,7 +41,7 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const InFormInput = () => {
+const InFormInput = (props) => {
 
   const [filter, setFilter] = useState('');
 
@@ -63,11 +64,12 @@ const InFormInput = () => {
 
   const handleChange = (event) => {
     setFilter(event.target.value);
+    props.onSelectionUpdate(event.target.value)
   };
 
   return (
     <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-      <InputLabel id="demo-select-small">Filter</InputLabel>
+      <InputLabel id="demo-select-small">Filter...</InputLabel>
       <Select
         classes={{ root: minimalSelectClasses.select }}      
         labelId="demo-select-small"
@@ -81,9 +83,10 @@ const InFormInput = () => {
         <MenuItem value="">
           <em>None</em>
         </MenuItem>
+        <MenuItem value={0}>Goals Scored</MenuItem>
+        <MenuItem value={1}>Assists</MenuItem>
         <MenuItem value={9}>Bonus Points</MenuItem>
         <MenuItem value={8}>Bps System</MenuItem>
-        <MenuItem value={0}>Goals Scored</MenuItem>
       </Select>
     </FormControl>
   );
