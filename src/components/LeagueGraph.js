@@ -78,7 +78,7 @@ const LeagueGraph = (props) => {
     }
 
     graph =
-    <Box sx={{ ml: '-0.7em', pb: '4em'}}>
+    <Box sx={{ pr: '1em' }}>
       {gData && gData.length > 0 &&
         <LineChart
         width={450}
@@ -86,8 +86,9 @@ const LeagueGraph = (props) => {
         data={gData}
         margin={{
           top: 5,
-          right: 25,
-          bottom: 5
+          right: 45,
+          bottom: 5,
+          left: -10
         }}
         >
         <CartesianGrid strokeDasharray="1 1" />
@@ -105,9 +106,9 @@ const LeagueGraph = (props) => {
   };
 
   return (
-    <div>
+    <Box sx={{ pb: '5em'}}>
       {graph}
-    </div>
+    </Box>
   );
 }
 
