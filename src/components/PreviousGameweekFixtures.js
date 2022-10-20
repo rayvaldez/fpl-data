@@ -5,9 +5,9 @@ import React from 'react';
 import TimeVResults from './TimeVResults';
 
 
-const LiveScore = (props) => {
+const PreviousGameweekFixtures = (props) => {
 
-  const gameweek = props.currentGW - 1
+  const gameweek = props.previousGW;
   
   // filteredArray contains all fixtures of gameweek
   let filteredArray = []
@@ -70,6 +70,7 @@ const LiveScore = (props) => {
         i2 ++
       }
     }
+    return fixture
   });
   
   return(
@@ -113,5 +114,5 @@ const LiveScore = (props) => {
   )
 }
 
-export default LiveScore;
+export default PreviousGameweekFixtures;
 
