@@ -67,6 +67,7 @@ const Standings = (props) => {
                 {/* Rank Sort here */}
                 <Typography variant='subtitle2'>{user.player_name} {rankUporDown(user.rank, user.last_rank)} </Typography>
                 <Typography variant='body1' >{user.entry_name}</Typography>
+                {user.picks.active_chip !== null ? <Typography variant='caption' sx={{ color: '#ff781f'}}>**{user.picks.active_chip[0].toUpperCase() + user.picks.active_chip.substring(1)}**</Typography> : null}
                 <Typography variant='caption'>Gameweek points  {user.picks.entry_history?.points}</Typography><br></br>
                 <GameweekPicks picks={user.picks?.picks}/>
                 <GameweekInformation transfers={user.transfers}/>
@@ -85,6 +86,7 @@ const Standings = (props) => {
                   <Box sx={{ marginBottom: '-0.9em', backgroundColor: '#FAF9F6', borderRadius: '5px', textAlign: 'center'}}>
                     <Typography variant='button'>{moment.localeData().ordinal(user.rank_sort)}</Typography>
                     <Typography variant='subtitle2' >{user.player_name} {rankUporDown(user.rank, user.last_rank)}</Typography>
+                    {user.picks.active_chip !== null ? <Typography variant='caption' sx={{ color: '#ff781f'}}>**{user.picks.active_chip[0].toUpperCase() + user.picks.active_chip.substring(1)}**</Typography> : null}
                     <Typography variant='body2' >{user.entry_name}</Typography>
                     <Typography variant='caption'>Gameweek points  {user.picks.entry_history?.points}</Typography><br></br>
                     <GameweekPicks picks={user.picks?.picks}/>
