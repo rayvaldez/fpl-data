@@ -27,7 +27,7 @@ class StandingsContainer extends React.Component {
       }}>     
         <StandingsInput fetchLeague={this.props.fetchLeague} currentGW={findCurrentGW()}/>
         <Standings managers={this.props.managers} isLoading={this.props.isLoading}/>
-        <LeagueGraph leagueData={this.props.managers}/>
+        <LeagueGraph leagueData={this.props.managers} isLoading={this.props.isLoading}/>
       </Box>
     )
   }
