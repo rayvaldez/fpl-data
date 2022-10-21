@@ -10,13 +10,22 @@ import Box from '@mui/material/Box';
 class StandingsContainer extends React.Component {
 
   render() {
+
+    const findCurrentGW = () => {
+      if (this.props.information.general?.events[this.props.information.currentGW - 2].is_current === true) {
+        return this.props.information.general?.events[this.props.information.currentGW - 2].id
+      } else {
+        return this.props.information.general?.events[this.props.information.currentGW - 1].id
+      }
+    }    
+
     console.log(this.props)
     return(
       <Box sx={{
         minHeight: '100vh',
         backgroundColor: '#151515'
       }}>     
-        <StandingsInput fetchLeague={this.props.fetchLeague} currentGW={this.props.information.currentGW}/>
+        <StandingsInput fetchLeague={this.props.fetchLeague} currentGW={findCurrentGW()}/>
         <Standings managers={this.props.managers} isLoading={this.props.isLoading}/>
         <LeagueGraph leagueData={this.props.managers}/>
       </Box>
