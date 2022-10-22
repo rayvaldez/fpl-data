@@ -43,7 +43,7 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
 
 const InFormInput = (props) => {
 
-  const [filter, setFilter] = useState('');
+  const [filter, setFilter] = useState(0);
 
   const minimalSelectClasses = useMinimalSelectStyles();
 
@@ -80,9 +80,6 @@ const InFormInput = (props) => {
         onChange={handleChange}
         input={<BootstrapInput />}
       >
-        <MenuItem value="">
-          <em>None</em>
-        </MenuItem>
         <MenuItem value={0}>Goals Scored</MenuItem>
         <MenuItem value={1}>Assists</MenuItem>
         <MenuItem value={9}>Bonus Points</MenuItem>
