@@ -13,6 +13,8 @@ import moment from 'moment';
 
 const Standings = (props) => {
 
+  console.log(props)
+
   const leaderScore = props.managers && props.managers.length > 0 ? props.managers[0].total : [];
   const leagueName = props.managers.name
   const leader = props.managers && props.managers.slice(0, 1)
@@ -29,7 +31,7 @@ const Standings = (props) => {
       )
     } else {
       return (
-        <HorizontalRuleIcon sx={{ color: '#899499'}} />
+        <HorizontalRuleIcon sx={{ color: '#899499', verticalAlign: 'middle'}} />
       )
     }
   }
@@ -59,6 +61,7 @@ const Standings = (props) => {
 
       {/* Render the leader of the league */}
         {props.managers && leader.map(user => {
+          
           console.log(user)
           return (
             <Grid item xs={12} key={user.id}>
