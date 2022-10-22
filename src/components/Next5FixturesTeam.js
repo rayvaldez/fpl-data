@@ -50,45 +50,45 @@ const next5FixturesTeam = (props) => {
   const getDifficultyColor = (teamDifficulty, team_name) => {
     if (teamDifficulty === 1) {
       return (
-        <Typography sx={{ color: '#faf9f6', backgroundColor: '#2cba00', h: '1em', w: '1em'}}>
+        <Typography sx={{ color: '#faf9f6', backgroundColor: '#2cba00', h: '1em', w: '1em', pt: '2px', borderRadius: '4px' }}>
           
         </Typography>
       )
     } else if (teamDifficulty === 2) {
       return (
-        <Box sx={{ backgroundColor: '#08FF08', textAlign: 'center', height: '1.8em', width: '4.2em'}}>
-          <Typography variant='subtitle2' sx={{ color: '#28282b'}}>
+        <Box sx={{ backgroundColor: '#08FF08', textAlign: 'center', height: '1.8em', width: '4.2em', borderRadius: '4px' }}>
+          <Typography variant='subtitle2' sx={{ color: '#28282b', pt: '2px' }}>
             {team_name}
           </Typography>
         </Box>
       )
     } else if (teamDifficulty === 3) {
       return (
-        <Box sx={{ backgroundColor: '#fff400', textAlign: 'center', height: '1.8em', width: '4.2em'}}>
-          <Typography variant='subtitle2' sx={{ color: '#28282b'}}>
+        <Box sx={{ backgroundColor: '#fff400', textAlign: 'center', height: '1.8em', width: '4.2em', borderRadius: '4px' }}>
+          <Typography variant='subtitle2' sx={{ color: '#28282b', pt: '2px' }}>
             {team_name}
           </Typography>
         </Box>
       )
     } else if (teamDifficulty === 4) {
       return (
-        <Box sx={{ backgroundColor: '#ffa700', textAlign: 'center', height: '1.8em', width: '4.2em'}}>
-          <Typography variant='subtitle2' sx={{ color: '#28282b'}}>
+        <Box sx={{ backgroundColor: '#ffa700', textAlign: 'center', height: '1.8em', width: '4.2em', borderRadius: '4px' }}>
+          <Typography variant='subtitle2' sx={{ color: '#28282b', pt: '2px' }}>
             {team_name}
           </Typography>
         </Box> 
       )
     } else if (teamDifficulty === 5) {
       return (
-        <Box sx={{ backgroundColor: '#df0f00', textAlign: 'center', height: '1.8em', width: '4.2em'}}>
-          <Typography variant='subtitle2' sx={{ color: '#faf9f6'}}>
+        <Box sx={{ backgroundColor: '#df0f00', textAlign: 'center', height: '1.8em', width: '4.2em', borderRadius: '4px' }}>
+          <Typography variant='subtitle2' sx={{ color: '#faf9f6', pt: '2px' }}>
             {team_name}
           </Typography>
         </Box>       
       )
     } else {
       return (
-        <Box sx={{ backgroundColor: '#949494', height: '1.8em', width: '4.2em'}}>
+        <Box sx={{ backgroundColor: '#949494', height: '1.8em', width: '4.2em', pt: '2px', borderRadius: '4px' }}>
         </Box>
       )
     }
@@ -97,7 +97,7 @@ const next5FixturesTeam = (props) => {
   return (
     <TableRow>
       <TableCell align='right'>
-        <Typography variant='caption' sx={{ color: '#faf9f6'}}>
+        <Typography variant='body2' sx={{ color: '#faf9f6'}}>
           {team.short_name}
         </Typography>
       </TableCell>
