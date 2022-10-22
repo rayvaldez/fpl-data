@@ -39,7 +39,7 @@ class StandingsInput extends React.Component {
             pattern='[0-9]'
             size="small"
             id="outlined-basic" 
-            label="League ID" 
+            label="League ID..." 
             variant="outlined" 
             value={this.state.input}
             onChange={this.handleChange}
@@ -47,7 +47,7 @@ class StandingsInput extends React.Component {
             sx={{
               input: {
                 background: "#FAF9F6",
-                height: "1.9vh"
+                borderRadius: "4px"
               }
             }}
           />          
@@ -55,8 +55,8 @@ class StandingsInput extends React.Component {
             variant="contained" 
             type="submit" 
             value="submit"
-            size="small"
-            sx={{ ml: "1vw" }}
+            size="medium"
+            sx={{ ml: "1vw", height: '5.8vh' }}
           >Submit</Button>
         </form>
       </Box>
