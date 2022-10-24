@@ -11,7 +11,8 @@ import InFormFilterGameweek from './InFormFilterGameweek';
 
 const InForm = ({fixtures, nextGW}) => {
 
-  const [input, setInput] = useState(8);
+  const [input, setInput] = useState(0);
+  const [noOfGameweeks, setNoOfGameweeks] = useState(5)
   
   let last5 = [];
   let bonusArray = [];
@@ -23,7 +24,7 @@ const InForm = ({fixtures, nextGW}) => {
   
   const filter5 = () => {
     fixtures?.forEach(fixture => {
-      if (fixture.event <= nextGW && (fixture.event >= nextGW - 5)) {
+      if (fixture.event <= nextGW && (fixture.event >= nextGW - noOfGameweeks)) {
       last5?.push(fixture)
       }
     })
@@ -49,6 +50,10 @@ const InForm = ({fixtures, nextGW}) => {
 
   const onSelectionUpdate = (stat) => {
     setInput(stat);
+  }
+
+  const updateGwNo = (number) => {
+    setNoOfGameweeks(number);
   }
 
   const bpsArray = () => {
@@ -87,11 +92,11 @@ const InForm = ({fixtures, nextGW}) => {
   // Mode is the most common number in the array
   // Median is the middle number of the array
 
-
   return (
     <Box sx={{
-      p: '0.2em 1em 0.6em',
+      p: '0.2em 1em 0em',
       m: '2vh 1vw 2vh 1vw',
+      position: 'relative'
       // bgcolor: '#26262a',
       // borderRadius: '10px'
     }}>
@@ -106,21 +111,75 @@ const InForm = ({fixtures, nextGW}) => {
         color: '#faf9f6',
         textAlign: 'center'
       }}>
-        Use the dropdown box to filter chosen statistic over the last 2-5 gameweeks
+        Use the dropdown box to filter between statistic over the last 2-5 gameweeks
       </Typography>
       <br></br>
-      <Box sx={{ display: 'inline-flex'}}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-around'}}>
         <InFormInput onSelectionUpdate={onSelectionUpdate}/>
-        <InFormFilterGameweek />
+        <InFormFilterGameweek updateGwNo={updateGwNo}/>
+      </Box>
+      <Box label="goalkeeper" sx={{ 
+        position: 'absolute', 
+        top: '22vh',
+        left: '50%',
+        transform: 'translate(-50%, 0)'
+      }}>
+        <InFormGk goalkeeper={gkArray[0]}/>
+      </Box>
+      <Box label="defenders" sx={{ 
+        position: 'absolute',
+        display: 'flex',
+        width: '85%', 
+        top: '33vh',
+        left: '50%',
+        transform: 'translate(-50%, 0)',
+        justifyContent: 'space-around'
+        // bgcolor: '#202020'
+      }}>
+        {defArray[0].map(defender => (
+          <InFormDef defender={defender} key={defender.id}/>
+        ))}
+      </Box>
+      <Box label="midfielders" sx={{ 
+        position: 'absolute',
+        display: 'flex',
+        width: '96%',  
+        top: '46vh',
+        left: '50%',
+        transform: 'translate(-50%, 0)',
+        justifyContent: 'space-around',
+        zIndex: '10'
+      }}>
+        {midArray[0].map(midfielder => (
+          <InFormMid midfielder={midfielder} key={midfielder.id}/>
+        ))}
+      </Box>
+      <Box label="forwards" sx={{ 
+        position: 'absolute',
+        display: 'flex', 
+        top: '59vh',
+        width: '60%',
+        left: '50%',
+        transform: 'translate(-50%, 0)',
+        zIndex: '1',
+        justifyContent: 'space-around'
+      }}>
+        {fwdArray[0].map(forward => (
+          <InFormFwd forward={forward} key={forward.id}/>
+        ))}
       </Box>
       <Box label='touchline' sx={{
+        mt: '-4em',
         height: '70vh',
         borderWidth: '5px',
         borderColor: '#22800a',
+        borderBottom: 'none',
         borderStyle: 'solid',
         borderRadius: '5px',
-        // opacity: '30%',
-        position: 'relative'
+        position: 'relative',
+        transform: 'perspective(70em) rotateX(40deg)',
+        transformStyle: 'preserve-3d',
+        overflow: 'hidden',
       }}>
         <Box label='h-penalty' sx={{
           borderWidth: '5px',
@@ -132,51 +191,45 @@ const InForm = ({fixtures, nextGW}) => {
           height: '70px',
           borderTop: '0'
         }}>
-          <InFormGk goalkeeper={gkArray[0]}/>
+          {/* <InFormGk goalkeeper={gkArray[0]}/> */}
         </Box>
-        <Box label='defenderArea' sx={{ textAlign: 'center' }}>
+        {/* <Box label='defenderArea' sx={{ textAlign: 'center' }}>
           {defArray[0].map(defender => (
             <InFormDef defender={defender} key={defender.id}/>
           ))}
-        </Box>
+        </Box> */}
+        {/* <Box label='midfielderArea' sx={{ textAlign: 'center', pt: '6em' }}>
+          {midArray[0].map(midfielder => (
+            <InFormMid midfielder={midfielder} key={midfielder.id}/>
+          ))}
+        </Box> */}
         <Box label='centreCircle' sx={{
           borderWidth: '5px',
           borderRadius: '50%',
           borderStyle: 'solid',
           borderColor: '#22800a',
-          height: '100px',
-          width: '100px',
-          left: '35%',
-          top: '39%',
-          position: 'absolute'
+          height: '90px',
+          width: '90px',
+          top: '45vh',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          position: 'relative',
+          zIndex: '-1'
         }}></Box>
-        <Box label='centerline' sx={{
-          borderBottom: '5px solid #22800a',
-          height: '24%',
-          position: 'relative'
+        {/* <Box label='forwardArea' sx={{ 
+          textAlign: 'center' 
         }}>
-          <Box label='midfielderArea' sx={{ textAlign: 'center', pt: '6em' }}>
-            {midArray[0].map(midfielder => (
-              <InFormMid midfielder={midfielder} key={midfielder.id}/>
-            ))}
-          </Box>
+          {fwdArray[0].map(forward => (
+            <InFormFwd forward={forward} key={forward.id}/>
+          ))}
+        </Box> */}
+        <Box label='centerline' sx={{
+          borderTop: '5px solid #22800a',
+          position: 'relative',
+          zIndex: '-1',
+          top: '37vh'
+        }}>
         </Box>
-        <Box label='forwardArea' sx={{ textAlign: 'center', pt: '8em' }}>
-            {fwdArray[0].map(forward => (
-              <InFormFwd forward={forward} key={forward.id}/>
-            ))}
-          </Box>        
-        <Box label='a-penalty' sx={{
-          position: 'absolute',
-          borderWidth: '5px',
-          borderColor: '#22800a',
-          borderStyle: 'solid',
-          width: '50vw',
-          left: '20%',
-          height: '70px',
-          borderBottom: '0',
-          bottom: '0px'
-        }}></Box>
       </Box>
     </Box>
   )
