@@ -5,45 +5,58 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
-  Legend
+  Tooltip
 } from "recharts";
+import { Container, Box } from "@mui/material";
 
 
 const ManagerGraph = (props) => {
 
-  const data = props.manager.current;
-  const managerName = props.manager.first_name + " " + props.manager.last_name
+  const data = props.manager?.current;
+  const managerName = props.manager?.first_name + " " + props.manager?.last_name
+
+  const DataFormatter = (number) => {
+    if(number > 1000000000){
+      return (number/1000000000).toString() + 'B';
+    }else if(number > 1000000){
+      return (number/1000000).toString() + 'M';
+    }else if(number > 1000){
+      return (number/1000).toString() + 'K';
+    }else{
+      return number.toString();
+    }
+  }
 
   return (
-    <div>
-      {data && data.length > 0 &&
-        <LineChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5
-        }}
-        >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="event" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line
-        name={managerName}
-        type="monotone"
-        dataKey="total_points"
-        stroke="#8884d8"
-        activeDot={{ r: 8 }}
-        />
-        </LineChart>
-      }
-    </div>
+    <Container maxWidth="sm">
+      <Box sx={{ pb: '10vh' }}>
+        {data && data.length > 0 &&
+          <LineChart
+          width={500}
+          height={300}
+          data={data}
+          margin={{
+            top: 5,
+            right: 110,
+            left: -10,
+            bottom: 0
+          }}
+          >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="event" />
+          <YAxis tickFormatter={DataFormatter}/>
+          <Tooltip formatter={(value) => new Intl.NumberFormat('en').format(value)} />
+          <Line
+          name={managerName}
+          type="monotone"
+          dataKey="overall_rank"
+          stroke="#8884d8"
+          activeDot={{ r: 8 }}
+          />
+          </LineChart>
+        }
+      </Box>
+    </Container>    
   );
 }
 
