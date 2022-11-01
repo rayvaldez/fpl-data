@@ -7,7 +7,7 @@ import {
   CartesianGrid,
   Tooltip
 } from "recharts";
-import { Container, Box } from "@mui/material";
+import { Container, Box, Typography } from "@mui/material";
 
 
 const ManagerGraph = (props) => {
@@ -29,6 +29,13 @@ const ManagerGraph = (props) => {
 
   return (
     <Container maxWidth="sm">
+      <Typography variant='subtitle2' sx={{ 
+        color: '#33BB00',
+        fontFamily: 'masque',
+        textAlign: 'center'
+      }}>
+        Overall Rank
+      </Typography>
       <Box sx={{ pb: '10vh' }}>
         {data && data.length > 0 &&
           <LineChart
