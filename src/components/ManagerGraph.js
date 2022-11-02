@@ -34,7 +34,7 @@ const ManagerGraph = (props) => {
         fontFamily: 'masque',
         textAlign: 'center'
       }}>
-        Overall Rank
+        {data ? "Overall Rank" : null}
       </Typography>
       <Box sx={{ pb: '10vh' }}>
         {data && data.length > 0 &&
