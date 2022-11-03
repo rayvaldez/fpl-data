@@ -1,4 +1,4 @@
-export function fetchManager(managerId) {
+export function fetchManager(managerId, gameweek) {
 
   let managerInfo = {}
   let managerPicks = {}
@@ -12,7 +12,7 @@ export function fetchManager(managerId) {
         managerInfo = manager
         
         const fetchManagerPicks = async (managerId) => {
-          const request = await fetch(`https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/entry/${managerId}/event/1/picks/`)
+          const request = await fetch(`https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/entry/${managerId}/event/${gameweek}/picks/`)
           console.log(request)
           return request
         }
