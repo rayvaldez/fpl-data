@@ -18,7 +18,7 @@ class ManagerInput extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     console.log('fetching')
-    this.props.fetchManager(this.state.input)
+    this.props.fetchManager(this.state.input, this.props?.gameweek - 1)
     this.setState({
       input: ''
     });
