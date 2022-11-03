@@ -2,6 +2,7 @@ import React from 'react';
 import ManagerInput from '../components/ManagerInput';
 import Manager from '../components/Manager';
 import ManagerGraph from '../components/ManagerGraph';
+import ManagerNextFive from '../components/ManagerNextFive';
 import { fetchManager } from '../actions/fetchManager';
 import { connect } from 'react-redux';
 import Box from '@mui/material/Box';
@@ -18,6 +19,7 @@ class ManagerContainer extends React.Component {
       }}>
         <ManagerInput fetchManager={this.props.fetchManager} gameweek={this.props.information.currentGW}/>
         <Manager manager={this.props.manager}/>
+        <ManagerNextFive fixtures={this.props.information.fixtures} currentGW={this.props.information.currentGW} manager={this.props.manager}/>
         <ManagerGraph manager={this.props.manager}/> 
       </Box>
     )
