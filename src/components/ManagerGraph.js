@@ -5,7 +5,8 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip
+  Tooltip,
+  ResponsiveContainer
 } from "recharts";
 import { Container, Box, Typography } from "@mui/material";
 
@@ -28,39 +29,39 @@ const ManagerGraph = (props) => {
   }
 
   return (
-    <Container maxWidth="sm">
-      <Typography variant='subtitle2' sx={{ 
+    <Container>
+      <Typography variant='subtitle1' sx={{ 
         color: '#33BB00',
         fontFamily: 'masque',
         textAlign: 'center'
       }}>
         {data ? "Overall Rank" : null}
       </Typography>
-      <Box sx={{ pb: '10vh' }}>
+      <Box sx={{ pb: '10vh', width: '91vw', height: '70vw' }}>
         {data && data.length > 0 &&
-          <LineChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 110,
-            left: -10,
-            bottom: 0
-          }}
-          >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="event" />
-          <YAxis tickFormatter={DataFormatter}/>
-          <Tooltip formatter={(value) => new Intl.NumberFormat('en').format(value)} />
-          <Line
-          name={managerName}
-          type="monotone"
-          dataKey="overall_rank"
-          stroke="#8884d8"
-          activeDot={{ r: 8 }}
-          />
-          </LineChart>
+          <ResponsiveContainer>
+            <LineChart
+            data={data}
+            margin={{
+              top: 5,
+              right: 0,
+              left: 0,
+              bottom: 0
+            }}
+            >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="event" />
+            <YAxis tickFormatter={DataFormatter} width={50}/>
+            <Tooltip formatter={(value) => new Intl.NumberFormat('en').format(value)} />
+            <Line
+            name={managerName}
+            type="monotone"
+            dataKey="overall_rank"
+            stroke="#8884d8"
+            activeDot={{ r: 8 }}
+            />
+            </LineChart>
+          </ResponsiveContainer>
         }
       </Box>
     </Container>    
