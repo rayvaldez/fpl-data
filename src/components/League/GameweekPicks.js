@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import playerJSON from './jsonData/playerJSON';
+import playerJSON from '../jsonData/playerJSON';
 import React, { useState, useEffect } from 'react';
 
 const GameweekPicks = (props) => {

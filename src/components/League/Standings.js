@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from "@mui/material/Typography";
-import GameweekInformation from '../components/transferInformation/GameweekInformation';
+import GameweekInformation from './GameweekInformation';
 import GameweekPicks from './GameweekPicks';
 import ArrowDropUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import ArrowDropDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
