@@ -6,7 +6,14 @@ const ManagerGameweekSummary = (props) => {
  
   return(
     <Box>
-      {props.manager ? <Typography variant='h6' sx={{ textAlign: 'center', color: '#faf9f6', pb: '1em'}}>Summary</Typography> : null}
+      <Typography variant='subtitle1' sx={{ 
+        color: '#33BB00',
+        fontFamily: 'masque',
+        textAlign: 'center',
+        p: '0.5em 0 0.5em'
+      }}>
+        {props.manager ? "Summary" : null}
+      </Typography>      
       {props.manager && props.manager.current && props.manager.current.map(user => {
         return (
           <div key={user.event}>
