@@ -7,7 +7,8 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Legend,
+  ResponsiveContainer
 } from "recharts";
 
 
@@ -78,26 +79,26 @@ const LeagueGraph = (props) => {
     }
 
     graph =
-    <Box sx={{ pr: '1em' }}>
+    <Box sx={{ pr: '1em', width: '95%', height: '60vh' }}>
       {gData && gData.length > 0 &&
-        <LineChart
-        width={450}
-        height={400}
-        data={gData}
-        margin={{
-          top: 5,
-          right: 45,
-          bottom: 5,
-          left: -10
-        }}
-        >
-        <CartesianGrid strokeDasharray="1 1" />
-        <XAxis dataKey="event"/>
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        {renderLines()}
-        </LineChart>
+        <ResponsiveContainer>
+          <LineChart
+            data={gData}
+            margin={{
+              top: 15,
+              right: 0,
+              bottom: 5,
+              left: 0
+            }}
+            >
+            <CartesianGrid strokeDasharray="1 1" />
+            <XAxis dataKey="event"/>
+            <YAxis width={45}/>
+            {/* <Tooltip /> */}
+            <Legend />
+            {renderLines()}
+          </LineChart>
+        </ResponsiveContainer>
       }
     </Box>
 
