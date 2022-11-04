@@ -1,8 +1,8 @@
 import React from 'react';
-import ManagerInput from '../components/ManagerInput';
-import Manager from '../components/Manager';
-import ManagerGraph from '../components/ManagerGraph';
-import ManagerNextFive from '../components/ManagerNextFive';
+import ManagerInput from '../components/Manager/ManagerInput';
+import Manager from '../components/Manager/Manager';
+import ManagerGraph from '../components/Manager/ManagerGraph';
+import ManagerNextFive from '../components/Manager/ManagerNextFive';
 import { fetchManager } from '../actions/fetchManager';
 import { connect } from 'react-redux';
 import Box from '@mui/material/Box';
