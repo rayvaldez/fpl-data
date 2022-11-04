@@ -1,7 +1,7 @@
 import React from 'react';
-import Standings from '../components/Standings';
-import StandingsInput from '../components/StandingsInput';
-import LeagueGraph from '../components/LeagueGraph';
+import Standings from '../components/League/Standings';
+import StandingsInput from '../components/League/StandingsInput';
+import LeagueGraph from '../components/League/LeagueGraph';
 import { fetchLeague } from '../actions/fetchLeague';
 import { connect } from 'react-redux';
 import Box from '@mui/material/Box';
