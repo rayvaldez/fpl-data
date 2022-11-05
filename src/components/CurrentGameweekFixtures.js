@@ -83,9 +83,11 @@ const LandingFixtureResults = (props) => {
   const mapArray = () => {
     let array = [];
     if (nestedArray.length) {
+      let counter = 0;
       array = nestedArray.map(fixtureArray => {
+        counter++
         return (
-          <TimeVResults key={fixtureArray.length} fixtures={fixtureArray} />      
+          <TimeVResults key={counter} fixtures={fixtureArray} />      
       )})
     } else {
       array = null
