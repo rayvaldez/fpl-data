@@ -98,7 +98,7 @@ const LandingFixtureResults = (props) => {
   return(
     <Box sx={{
       p: '0.2em 1em 0.6em',
-      m: '2vh 4vw 2vh 4vw',
+      m: '2vh 4vw 0vh 4vw',
       bgcolor: '#26262a',
       borderRadius: '10px'
     }}>

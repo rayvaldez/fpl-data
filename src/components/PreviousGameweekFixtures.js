@@ -76,7 +76,7 @@ const PreviousGameweekFixtures = (props) => {
   return(
     <Box sx={{
       p: '0.2em 1em 0.6em',
-    m: '2vh 4vw 2vh 4vw',
+    m: '2vh 4vw 0vh 4vw',
     bgcolor: '#26262a',
     borderRadius: '10px'
     }}>
@@ -108,7 +108,8 @@ const PreviousGameweekFixtures = (props) => {
         </Grid>
       </Grid>
       {nestedArray.length && nestedArray.map(fixtureArray => 
-        <TimeVResults key={fixtureArray[0]?.code} fixtures={fixtureArray} />
+      // Key is random, use UUID?
+        <TimeVResults key={Math.random()} fixtures={fixtureArray} />
       )}
     </Box>
   )

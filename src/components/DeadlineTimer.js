@@ -54,7 +54,7 @@ const DeadlineTimer = (props) => {
     <Box sx={{ 
       backgroundImage: 'linear-gradient(to bottom, #33BB00, #272727)',
       borderRadius: '6px',
-      m: '0.3em 1em 1.2em 1em',
+      m: '0.3em 4vw 0em 4vw',
       textAlign: 'center',
       color: '#FAF9F6',
       p: '0.8em'
