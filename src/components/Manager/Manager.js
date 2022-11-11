@@ -6,7 +6,6 @@ import ManagerGameweekSummary from './ManagerGameweekSummary';
 
 const Manager = (props) => {
 
-  console.log(props)
   return (
     props.manager.chips ?
     <Box className="manager">
@@ -14,9 +13,9 @@ const Manager = (props) => {
         p: '0.1em 1em 0.5em',
         m: '0 4vw 1vh 4vw'
       }}>
-        <Grid item xs={7}>
+        <Grid item xs={12}>
           <Typography variant="h6" sx={{
-            color: '#FAF9F6',
+            color: 'secondary.main',
             textAlign: 'center'
           }}>
           {props.manager.first_name} {props.manager.last_name + " - "} {props.manager.team_name}
@@ -26,7 +25,7 @@ const Manager = (props) => {
       <Box sx={{
         p: '0.1vh 1em 0.8em',
         m: '1vh 4vw 3vh 4vw',
-        bgcolor: '#26262a',
+        bgcolor: 'background.secondary',
         borderRadius: '10px'
       }}>
         <ManagerGameweekSummary manager={props.manager}/>
