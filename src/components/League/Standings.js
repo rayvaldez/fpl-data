@@ -13,8 +13,6 @@ import moment from 'moment';
 
 const Standings = (props) => {
 
-  console.log(props)
-
   const leaderScore = props.managers && props.managers.length > 0 ? props.managers[0].total : [];
   const leagueName = props.managers.name
   const leader = props.managers && props.managers.slice(0, 1)
@@ -45,7 +43,7 @@ const Standings = (props) => {
         }}
       >
         <Box sx={{ textAlign: 'center'}}>
-          <Typography variant='caption' sx={{ color: '#faf9f6'}}> Famileague 523250 - Premier Inn 522380 - LoL 798151 - PFCUK 429812</Typography>
+          <Typography variant='caption' sx={{ color: 'secondary.main'}}> Famileague 523250 - Premier Inn 522380 - LoL 798151 - PFCUK 429812</Typography>
         </Box>
       {/* If props are present, render the name of the league */}
       {props.managers ?
@@ -53,7 +51,7 @@ const Standings = (props) => {
           borderRadius: "10px",
           m: '2vh 4vw 2vh 4vw'        
         }}>
-          <Box sx={{ color: '#FAF9F6', textAlign: 'center'}}>
+          <Box sx={{ color: 'secondary.main', textAlign: 'center'}}>
               <Typography variant='h5'>{leagueName}</Typography>
           </Box>
         </Grid>
@@ -61,11 +59,10 @@ const Standings = (props) => {
 
       {/* Render the leader of the league */}
         {props.managers && leader.map(user => {
-          
-          console.log(user)
+
           return (
             <Grid item xs={12} key={user.id}>
-              <Box sx={{ m: '0 0.9em 0.35em 0.9em', textAlign: 'center', backgroundColor: '#FAF9F6', borderRadius: '5px'}}>
+              <Box sx={{ m: '0 0.9em 0.35em 0.9em', textAlign: 'center', color: 'secondary.main', backgroundColor: 'background.main', borderRadius: '5px'}}>
                 <Typography variant='button'>{moment.localeData().ordinal(user.rank_sort)}</Typography>
                 {/* Rank Sort here */}
                 <Typography variant='subtitle2'>{user.player_name} {rankUporDown(user.rank, user.last_rank)} </Typography>
@@ -85,8 +82,11 @@ const Standings = (props) => {
             {props.managers && chasers.map(user => {
               return (
                 <Grid item xs={6} key={user.id} sx={{
+                  overflowY: 'scroll',
+                  maxHeight: '45vh',
+                  // minheight: '35vh'
                 }}>
-                  <Box sx={{ marginBottom: '-0.9em', backgroundColor: '#FAF9F6', borderRadius: '5px', textAlign: 'center'}}>
+                  <Box sx={{ marginBottom: '-0.9em', color: 'secondary.main', borderRadius: '5px', textAlign: 'center'}}>
                     <Typography variant='button'>{moment.localeData().ordinal(user.rank_sort)}</Typography>
                     <Typography variant='subtitle2' >{user.player_name} {rankUporDown(user.rank, user.last_rank)}</Typography>
                     {user.picks.active_chip !== null ? <Typography variant='caption' sx={{ color: '#ff781f'}}>**{user.picks.active_chip[0].toUpperCase() + user.picks.active_chip.substring(1)}**</Typography> : null}
@@ -110,13 +110,13 @@ const Standings = (props) => {
   } else if (props.isLoading === true) {
     return (
       <Box sx={{ textAlign: 'center', height: '100%'}}>       
-      <CircularProgress size='1.5em' sx={{ color: '#faf9f6', mt: '10em'}}/>
-      <Typography sx={{ color: '#faf9f6'}}>Loading...</Typography>
+      <CircularProgress size='1.5em' sx={{ color: 'secondary.main', mt: '10em'}}/>
+      <Typography sx={{ color: 'secondary.main'}}>Loading...</Typography>
     </Box>
     )
   } else {
     return (
-      <Typography variant='caption' sx={{ color: '#faf9f6'}}> Famileague 523250 - Premier Inn 522380 - LoL 798151 - PFCUK 429812</Typography>
+      <Typography variant='caption' sx={{ color: 'secondary.main'}}> Famileague 523250 - Premier Inn 522380 - LoL 798151 - PFCUK 429812</Typography>
     )
   }
 }

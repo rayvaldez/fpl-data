@@ -6,8 +6,6 @@ const ManagerNext5FixturesPlayer = (props) => {
 
   let filteredFixtures = []
 
-  console.log(props)
-
   const player = props?.player
   const team = props?.player.team
   const fixtures = props?.fixtures
@@ -23,19 +21,17 @@ const ManagerNext5FixturesPlayer = (props) => {
   
   filterFixtures()
 
-  console.log(filteredFixtures)
-
   const getDifficultyColor = (teamDifficulty, team_name) => {
     if (teamDifficulty === 1) {
       return (
-        <Typography sx={{ color: '#faf9f6', backgroundColor: '#2cba00', h: '1em', w: '1em', pt: '2px', borderRadius: '4px' }}>
+        <Typography sx={{ color: 'secondary.main', backgroundColor: '#2cba00', h: '1em', w: '1em', pt: '2px', borderRadius: '4px' }}>
           
         </Typography>
       )
     } else if (teamDifficulty === 2) {
       return (
         <Box sx={{ backgroundColor: '#08FF08', textAlign: 'center', height: '1.8em', width: '4.2em', borderRadius: '4px' }}>
-          <Typography variant='subtitle2' sx={{ color: '#28282b', pt: '2px' }}>
+          <Typography variant='subtitle2' sx={{ color: 'background.secondary', pt: '2px' }}>
             {team_name}
           </Typography>
         </Box>
@@ -43,7 +39,7 @@ const ManagerNext5FixturesPlayer = (props) => {
     } else if (teamDifficulty === 3) {
       return (
         <Box sx={{ backgroundColor: '#fff400', textAlign: 'center', height: '1.8em', width: '4.2em', borderRadius: '4px' }}>
-          <Typography variant='subtitle2' sx={{ color: '#28282b', pt: '2px' }}>
+          <Typography variant='subtitle2' sx={{ color: 'background.secondary', pt: '2px' }}>
             {team_name}
           </Typography>
         </Box>
@@ -51,7 +47,7 @@ const ManagerNext5FixturesPlayer = (props) => {
     } else if (teamDifficulty === 4) {
       return (
         <Box sx={{ backgroundColor: '#ffa700', textAlign: 'center', height: '1.8em', width: '4.2em', borderRadius: '4px' }}>
-          <Typography variant='subtitle2' sx={{ color: '#28282b', pt: '2px' }}>
+          <Typography variant='subtitle2' sx={{ color: 'background.secondary', pt: '2px' }}>
             {team_name}
           </Typography>
         </Box> 
@@ -59,7 +55,7 @@ const ManagerNext5FixturesPlayer = (props) => {
     } else if (teamDifficulty === 5) {
       return (
         <Box sx={{ backgroundColor: '#df0f00', textAlign: 'center', height: '1.8em', width: '4.2em', borderRadius: '4px' }}>
-          <Typography variant='subtitle2' sx={{ color: '#faf9f6', pt: '2px' }}>
+          <Typography variant='subtitle2' sx={{ color: 'secondary.main', pt: '2px' }}>
             {team_name}
           </Typography>
         </Box>       
@@ -73,10 +69,10 @@ const ManagerNext5FixturesPlayer = (props) => {
   }
 
   return (
-    props.fixtures.length ? 
+    props.fixtures && props.fixtures.length ? 
     <TableRow>
       <TableCell align='right'>
-        <Typography variant='body2' sx={{ color: '#faf9f6'}}>
+        <Typography variant='body2' sx={{ color: 'secondary.main'}}>
           {player.web_name}
         </Typography>
       </TableCell>

@@ -77,18 +77,18 @@ const PreviousGameweekFixtures = (props) => {
     <Box sx={{
       p: '0.2em 1em 0.6em',
     m: '2vh 4vw 0vh 4vw',
-    bgcolor: '#26262a',
+    bgcolor: 'background.secondary',
     borderRadius: '10px'
     }}>
       <Grid container sx={{
-        color: '#faf9f6',
+        color: 'secondary.main',
         gridGap: '5px',
         ml: '2.5em',
         width: '100%'
       }}>
         <Grid item xs>
           <Typography variant='subtitle2' sx={{ 
-            color: '#33BB00',
+            color: 'primary.main',
             fontFamily: 'masque',
             textAlign: 'right'
           }}>
@@ -97,7 +97,7 @@ const PreviousGameweekFixtures = (props) => {
         </Grid>
         <Grid item xs>
           <Typography variant='subtitle2' sx={{ 
-            color: '#33BB00',
+            color: 'primary.main',
             textAlign: 'left',
             fontSize: '0.95rem',
             marginRight: '1em',

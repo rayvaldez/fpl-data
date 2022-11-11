@@ -31,7 +31,7 @@ const ManagerGraph = (props) => {
   return (
     <Container>
       <Typography variant='subtitle1' sx={{ 
-        color: '#33BB00',
+        color: 'primary.main',
         fontFamily: 'masque',
         textAlign: 'center'
       }}>

@@ -16,7 +16,7 @@ const TimeVResults = (props) => {
   if (fixtureDate) {
     return (
       <Box>
-        <Typography variant='subtitle2' sx={{ color: '#faf9f6', textAlign: 'center' }}>
+        <Typography variant='subtitle2' sx={{ color: 'secondary.main', textAlign: 'center' }}>
           {date}
         </Typography>
         <Box>
@@ -29,7 +29,7 @@ const TimeVResults = (props) => {
   } else  {
     return (
       <Box sx={{ textAlign: 'center'}}>
-        <CircularProgress size='1.5em' sx={{ color: '#faf9f6', alignItems: 'center'}}/>
+        <CircularProgress size='1.5em' sx={{ color: 'secondary.main', alignItems: 'center'}}/>
       </Box>
     ) 
   }

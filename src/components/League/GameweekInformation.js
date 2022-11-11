@@ -20,7 +20,7 @@ const GameweekInformation = (props) => {
 
         return (
           <div key={el.time}>
-            <Typography variant="caption" sx={{ color: '#dd2c00'}}>{playerOut.web_name}</Typography> {'>'} <Typography variant="caption" sx={{ color: '#008000'}}>{playerIn?.web_name}</Typography>
+            <Typography variant="caption" sx={{ color: '#dd2c00'}}>{playerOut.web_name}</Typography> {'>'} <Typography variant="caption" sx={{ color: 'primary.main'}}>{playerIn?.web_name}</Typography>
           </div>
         )
       }) : null}

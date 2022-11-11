@@ -43,8 +43,7 @@ class ManagerInput extends React.Component {
             inputProps={{ style: { fontSize: 15 }}}
             sx={{
               input: {
-                background: "#FAF9F6",
-                height: "1.9vh"
+                background: "#e0e0e0"
               }
             }}
           />
@@ -52,7 +51,7 @@ class ManagerInput extends React.Component {
             variant="contained" 
             type="submit" 
             value="submit"
-            size="small"
+            size="medium"
             sx={{ ml: "1vw" }}
           >Submit</Button>
         </form>
