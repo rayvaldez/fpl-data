@@ -15,7 +15,8 @@ export const Team = (props) => {
       borderRadius: '13px', 
       p: '1em', 
       ml: '15px', 
-      width: '70vw'
+      width: '70vw',
+      height: '100%'
       }}
     >
       <Typography sx={{ 
