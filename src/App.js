@@ -5,19 +5,12 @@ import StandingsContainer from './containers/StandingsContainer';
 import ManagerContainer from './containers/ManagerContainer';
 import LandingContainer from './containers/LandingContainer';
 import { Routes, Route } from 'react-router-dom';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-
-
-const theme = createTheme({
-  typography: {
-    fontFamily: 
-      'Roboto'
-  }
-})
 
 class App extends React.Component {
 
