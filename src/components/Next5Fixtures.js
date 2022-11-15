@@ -34,13 +34,13 @@ const Next5Fixtures = (props) => {
       bgcolor: '#26262a',
       borderRadius: '10px'
     }}>
-        <Typography variant='subtitle2' sx={{ 
-          color: '#33BB00',
-          fontFamily: 'masque',
-          textAlign: 'center'
-        }}>
-          Next Five
-        </Typography>
+      <Typography variant='subtitle2' sx={{
+        color: 'primary.main',
+        fontFamily: 'masque',
+        textAlign: 'center'
+      }}>
+        Next Five
+      </Typography>
 
       <TableContainer component={Paper}>
         <Table sx={{ backgroundColor: '#26262a'}} size='small' aria-label="table">
