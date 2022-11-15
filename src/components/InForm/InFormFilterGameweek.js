@@ -2,31 +2,32 @@ import * as React from 'react';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
-export default function InFormFilterGameweek() {
-  const [alignment, setAlignment] = React.useState('left');
+export default function InFormFilterGameweek(props) {
+  const [gameweekNo, setGameweekNo] = React.useState(5);
 
-  const handleAlignment = (event, newAlignment) => {
-    setAlignment(newAlignment);
+  const handleChange = (event) => {
+    setGameweekNo(event.target.value);
+    props.updateGwNo(event.target.value)
   };
 
-  return (
+  return (  
     <ToggleButtonGroup
-      color="primary"
-      value={alignment}
+      size="medium"
+      value={gameweekNo}
       exclusive
-      onChange={handleAlignment}
-      aria-label="text alignment"
+      onChange={handleChange}
+      aria-label="number of gameweeks"
     >
-      <ToggleButton value="left" aria-label="left aligned">
+      <ToggleButton value={2} aria-label="2 gameweeks" sx={{ color: '#faf9f6'}}>
         2
       </ToggleButton>
-      <ToggleButton value="center" aria-label="centered">
+      <ToggleButton value={3} aria-label="3 gameweeks" sx={{ color: '#faf9f6'}}>
         3
       </ToggleButton>
-      <ToggleButton value="right" aria-label="right aligned">
+      <ToggleButton value={4} aria-label="4 gameweeks" sx={{ color: '#faf9f6'}}>
         4
       </ToggleButton>
-      <ToggleButton value="justify" aria-label="justified">
+      <ToggleButton value={5} aria-label="5 gameweeks" sx={{ color: '#faf9f6'}}>
         5
       </ToggleButton>
     </ToggleButtonGroup>
