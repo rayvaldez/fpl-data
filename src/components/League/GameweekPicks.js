@@ -23,7 +23,7 @@ const GameweekPicks = (props) => {
   const captainName = playerJSON.find(player => captain?.element === player.id)
   
   return (
-    <Typography variant='caption'>(C) {captainName?.web_name} </Typography>
+    <Typography variant='caption' sx={{ color: '#FFD700' }}>(C) {captainName?.web_name} </Typography>
   )
 }
 
