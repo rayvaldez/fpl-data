@@ -6,19 +6,29 @@ import playerJSON from './jsonData/playerJSON';
 import Grid from '@mui/material/Grid';
 import Tooltip from '@mui/material/Tooltip';
 import CircularProgress from '@mui/material/CircularProgress';
+import Paper from '@mui/material/Paper';
+import { styled } from '@mui/material/styles';
 
-const DreamTeam = (props) => {
+const DreamTeam = ({currentGW}) => {
 
-  const previousGW = props?.currentGW - 1
+  const latestGW = currentGW?.id
   
   let [ dreamTeam, setDreamTeam] = useState(null)
   
   useEffect(() => {
-    fetch(`https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/dream-team/${previousGW}/`)
+    fetch(`https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/dream-team/${latestGW}/`)
     .then(res => (res.ok ? res : Promise.reject(res)))
     .then(res => res.json())
     .then(data => setDreamTeam(data))
-  },[previousGW])
+  },[latestGW])
+
+  const item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));  
 
   const topPlayer = playerJSON.find(player => dreamTeam?.top_player.id === player.id)
 
@@ -36,7 +46,8 @@ const DreamTeam = (props) => {
         p: '0.2em 1em 0.6em',
         m: '2vh 4vw 2vh 4vw',
         bgcolor: '#26262a',
-        borderRadius: '10px'
+        borderRadius: '10px',
+        overflow: 'hidden'
       }}>
         <Typography variant='subtitle2' sx={{ 
           color: '#33BB00',
@@ -52,48 +63,51 @@ const DreamTeam = (props) => {
           Player of the Week
         </Typography>
         <Box sx={{ 
-          display: 'block',
-          ml: 'auto',
-          mr: 'auto',
-          width: '33%'
+          display: 'flex',
+          justifyContent: 'space-around',
+          alignItems: 'center',
+          // backgroundColor: '#f8f0E3',
+          borderRadius: '4px',
+          position: 'relative'
       }}>
           <img src={`https://resources.premierleague.com/premierleague/photos/players/110x140/p${parseInt(topPlayer.photo.substring(0,6))}.png`}
             alt={topPlayer.web_name}
             width='120em'
           />
-        </Box>
-        <Typography variant='subtitle2' sx={{ 
+        <Typography variant='subtitle2' sx={{
           color: '#faf9f6', 
-          textAlign: 'center' 
+          textAlign: 'center',
+          zIndex: '1'
         }}>
           {topPlayer.web_name} <br></br>
           {dreamTeam.top_player.points} Points <br></br>
           £{costString(topPlayer.now_cost)}
         </Typography>
+        </Box>
         <Grid container columnSpacing={{ xs: 1, sm: 1, m: 2 }}>
-          <Grid xs={3}>
+          <Grid item xs={3}>
             <Typography variant='caption' sx={{ color: '#faf9f6'}}>
               Player
             </Typography>
           </Grid>
-          <Grid xs={2}>
+          <Grid item xs={2}>
             <Typography variant='caption' sx={{ color: '#faf9f6'}}>
               Cost
             </Typography>
           </Grid>
-          <Grid xs={3}>
+          <Grid item xs={3}>
             <Typography variant='caption' sx={{ color: '#faf9f6'}}>
               Owned By
             </Typography>
           </Grid>
-          <Grid xs={2}>
+          <Grid item xs={2}>
             <Tooltip title="Dream Team Count">
               <Typography variant='caption' sx={{ color: '#faf9f6'}}>
                 DTC
               </Typography>
             </Tooltip>
           </Grid>
-          <Grid xs={2}>
+          <Grid item xs={2}>
             <Tooltip title="Gameweek Points">
               <Typography variant='caption' sx={{ color: '#faf9f6'}}>
                 GWP
