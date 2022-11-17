@@ -69,7 +69,7 @@ const ManagerNext5FixturesPlayer = (props) => {
   }
 
   return (
-    props.fixtures && props.fixtures.length ? 
+    props.fixtures.length ? 
     <TableRow>
       <TableCell align='right'>
         <Typography variant='body2' sx={{ color: 'secondary.main'}}>
