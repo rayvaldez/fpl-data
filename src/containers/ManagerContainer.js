@@ -1,5 +1,5 @@
 import React from 'react';
-import ManagerInput from '../components/Manager/ManagerNextFiveManagerInput';
+import ManagerInput from '../components/Manager/ManagerInput';
 import Manager from '../components/Manager/Manager';
 import ManagerGraph from '../components/Manager/ManagerGraph';
 import ManagerNextFive from '../components/Manager/ManagerNextFive';
