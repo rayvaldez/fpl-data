@@ -6,7 +6,7 @@ export function fetchLeague(leagueId, currentGW) {
   return (dispatch) => {
     dispatch({ type: 'FETCHING_MANAGERS'});
 
-    fetch(`https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/leagues-classic/${leagueId}/standings/`)
+    fetch(`/api/leagues-classic/${leagueId}/standings/`)
       .then(res => (res.ok ? res : Promise.reject(res)))
       .then(res => res.json())
       .then(data => {
@@ -22,7 +22,7 @@ export function fetchLeague(leagueId, currentGW) {
 
         const fetchManagerHistory = async (leagueManagers) => {
           const requests = leagueManagers.map((manager) => {
-            const url = `https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/entry/${manager.entry}/history/`
+            const url = `/api/entry/${manager.entry}/history/`
             return fetchManagerInfo(url)
             .then(a => a.json())
             .then(data => {
@@ -36,7 +36,7 @@ export function fetchLeague(leagueId, currentGW) {
         // currentGW gets its value from fetchInformation
         const fetchManagerPicks = async (leagueManagers) => {
           const requests = leagueManagers.map((manager) => {
-            const url = `https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/entry/${manager.entry}/event/${currentGW}/picks/`
+            const url = `/api/entry/${manager.entry}/event/${currentGW}/picks/`
             return fetchManagerInfo(url)
             .then(a => a.json())
             .then(data => {
@@ -48,7 +48,7 @@ export function fetchLeague(leagueId, currentGW) {
 
         const fetchManagerTransferHistory = async (leagueManagers) => {
           const requests = leagueManagers.map((manager) => {
-            const url = `https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/entry/${manager.entry}/transfers/`
+            const url = `/api/entry/${manager.entry}/transfers/`
             return fetchManagerInfo(url)
             .then(a => a.json())
             .then(data => {

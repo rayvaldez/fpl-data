@@ -16,7 +16,7 @@ const DreamTeam = ({currentGW}) => {
   let [ dreamTeam, setDreamTeam] = useState(null)
   
   useEffect(() => {
-    fetch(`https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/dream-team/${latestGW}/`)
+    fetch(`api/dream-team/${latestGW}/`)
     .then(res => (res.ok ? res : Promise.reject(res)))
     .then(res => res.json())
     .then(data => setDreamTeam(data))

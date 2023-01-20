@@ -1,8 +1,8 @@
 export function fetchInformation() {
 
   let information = {};
-  let api1 = 'https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/bootstrap-static/';
-  let api2 = 'https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/fixtures/';
+  let api1 = '/api/bootstrap-static/';
+  let api2 = '/api/fixtures/';
   // api3 has the gameweek hardcoded, work on a fix!
   // let api3 = `https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/dream-team/${nextGWID}/`;
   

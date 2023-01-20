@@ -5,14 +5,14 @@ export function fetchManager(managerId, gameweek) {
   let managerHistory = {}
 
   return (dispatch) => {
-    fetch(`https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/entry/${managerId}/`)
+    fetch(`/api/entry/${managerId}/`)
       .then(res => (res.ok ? res : Promise.reject(res)))
       .then(res => res.json())
       .then(manager => {
         managerInfo = manager
         
         const fetchManagerPicks = async (managerId) => {
-          const request = await fetch(`https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/entry/${managerId}/event/${gameweek}/picks/`)
+          const request = await fetch(`/api/entry/${managerId}/event/${gameweek}/picks/`)
           console.log(request)
           return request
         }
@@ -24,7 +24,7 @@ export function fetchManager(managerId, gameweek) {
           managerPicks = data
         })
           
-        return fetch(`https://ancient-ocean-21689.herokuapp.com/https://fantasy.premierleague.com/api/entry/${managerId}/history/`)
+        return fetch(`/api/entry/${managerId}/history/`)
       }).then(res => (res.ok ? res : Promise.reject(res)))
         .then(res => res.json())
         .then(data => {
